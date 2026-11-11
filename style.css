@@ -136,3 +136,4 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 }
 @media (max-width: 420px) { .row { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; transform: none; } * { transition: none !important; } }
+@media (max-width: 520px) { .hero-actions { flex-direction: column; } .hero-actions .btn { width: 100%; } }
