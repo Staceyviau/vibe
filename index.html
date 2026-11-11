@@ -3,181 +3,184 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Playa Paraíso — Tours &amp; Locations à Playa del Carmen</title>
-  <meta name="description" content="Tours guidés et locations de vacances à Playa del Carmen : cenotes, Tulum, Cozumel, Chichén Itzá et logements près de la plage.">
+  <title>Vibe Riviera Maya — Excursions &amp; locations à Playa del Carmen</title>
+  <meta name="description" content="Excursions privées et en petit groupe depuis Playa del Carmen : Cozumel, Chichén Itzá, Tulum et Cobá, Bacalar, Sian Ka'an, Isla Mujeres. Locations de vacances. Réservation sur WhatsApp.">
+  <meta property="og:title" content="Vibe Riviera Maya">
+  <meta property="og:description" content="Excursions et locations de vacances à Playa del Carmen.">
+  <meta property="og:image" content="images/bacalar.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav">
+  <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">Playa<span>Paraíso</span></a>
-      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <a href="#" class="logo">Vibe <em>Riviera Maya</em></a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
       <nav class="menu">
-        <a href="#tours">Tours</a>
+        <a href="#excursions">Excursions</a>
         <a href="#locations">Locations</a>
-        <a href="#avis">Avis</a>
-        <a href="#contact" class="btn btn-small">Réserver</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact" class="btn btn-outline">Réserver</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
+      <div class="hero-bg" role="img" aria-label="Lagune de Bacalar vue du ciel"></div>
       <div class="container hero-content">
-        <p class="eyebrow">Riviera Maya · Mexique</p>
-        <h1>Vivez Playa del Carmen comme un local</h1>
-        <p class="lead">Excursions inoubliables vers les cenotes, les ruines mayas et les îles, et des logements confortables à quelques pas de la plage.</p>
+        <p class="kicker">Playa del Carmen · Riviera Maya</p>
+        <h1>L'essence de la<br><em>Riviera Maya</em></h1>
+        <p class="lead">Excursions soigneusement sélectionnées et locations de vacances, pour découvrir le Yucatán en toute sérénité.</p>
         <div class="hero-actions">
-          <a href="#tours" class="btn">Découvrir les tours</a>
-          <a href="#locations" class="btn btn-light">Voir les locations</a>
+          <a href="#excursions" class="btn btn-light">Nos excursions</a>
+          <a href="https://wa.me/529841306938" class="btn btn-ghost" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
         </div>
-        <ul class="badges">
-          <li>✔ Guides francophones</li>
-          <li>✔ Petits groupes</li>
-          <li>✔ Transport inclus</li>
-        </ul>
+      </div>
+      <a href="#excursions" class="scroll-hint" aria-label="Défiler">↓</a>
+    </section>
+
+    <section class="intro">
+      <div class="container intro-grid">
+        <div><span class="num">01</span><h3>Sur mesure</h3><p>Chaque excursion s'adapte à votre rythme et à vos envies.</p></div>
+        <div><span class="num">02</span><h3>Réservation simple</h3><p>Un message WhatsApp suffit, nous vous répondons rapidement.</p></div>
+        <div><span class="num">03</span><h3>Conseil local</h3><p>Des recommandations sincères de quelqu'un qui vit ici.</p></div>
       </div>
     </section>
 
-    <section id="tours" class="section">
+    <section id="excursions" class="section">
       <div class="container">
-        <p class="eyebrow">Nos excursions</p>
-        <h2>Tours &amp; activités</h2>
-        <div class="cards">
-          <article class="card">
-            <div class="card-img t-cenote"><span class="tag">Coup de cœur</span></div>
-            <div class="card-body">
-              <h3>Route des Cenotes</h3>
-              <p>Baignade dans 3 cenotes cristallins, snorkeling et déjeuner typique.</p>
-              <div class="meta"><span>⏱ 6 h</span><span class="price">dès 75 $</span></div>
-              <a class="btn btn-block" data-book="Route des Cenotes" href="#contact">Réserver</a>
+        <div class="section-head">
+          <p class="kicker">Collection</p>
+          <h2>Nos excursions</h2>
+          <p class="sub">Au départ de Playa del Carmen. Tarifs et disponibilités sur demande.</p>
+        </div>
+        <div class="tours">
+          <article class="tour">
+            <div class="tour-img"><img src="images/cozumel.jpg" alt="Tortue marine à Cozumel" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>El Cielo, Cozumel</h3>
+              <p>Un coin de paradis aux eaux cristallines : snorkeling parmi les étoiles de mer, les coraux et les tortues.</p>
+              <a class="link" data-tour="El Cielo Cozumel" href="#contact">Réserver <span>→</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card-img t-tulum"></div>
-            <div class="card-body">
-              <h3>Tulum &amp; tortues à Akumal</h3>
-              <p>Ruines mayas face à la mer puis nage avec les tortues marines.</p>
-              <div class="meta"><span>⏱ 8 h</span><span class="price">dès 95 $</span></div>
-              <a class="btn btn-block" data-book="Tulum & Akumal" href="#contact">Réserver</a>
+          <article class="tour">
+            <div class="tour-img"><img src="images/chichen-itza.jpg" alt="Pyramide de Chichén Itzá" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>Chichén Itzá</h3>
+              <p>Découvrez la cité maya inscrite parmi les sept nouvelles merveilles du monde et sa célèbre pyramide de Kukulcán.</p>
+              <a class="link" data-tour="Chichén Itzá" href="#contact">Réserver <span>→</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card-img t-cozumel"></div>
-            <div class="card-body">
-              <h3>Snorkeling à Cozumel</h3>
-              <p>Récifs coralliens, eaux turquoise et plage paradisiaque en bateau.</p>
-              <div class="meta"><span>⏱ 7 h</span><span class="price">dès 85 $</span></div>
-              <a class="btn btn-block" data-book="Snorkeling Cozumel" href="#contact">Réserver</a>
+          <article class="tour">
+            <div class="tour-img"><img src="images/tulum-coba.jpg" alt="Ruines mayas de Tulum" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>Tulum &amp; Cobá</h3>
+              <p>Deux sites mayas incontournables : Tulum face à la mer des Caraïbes et Cobá au cœur de la jungle.</p>
+              <a class="link" data-tour="Tulum & Cobá" href="#contact">Réserver <span>→</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card-img t-chichen"><span class="tag">Merveille du monde</span></div>
-            <div class="card-body">
-              <h3>Chichén Itzá &amp; Valladolid</h3>
-              <p>La grande pyramide, un cenote sacré et la ville coloniale de Valladolid.</p>
-              <div class="meta"><span>⏱ 12 h</span><span class="price">dès 120 $</span></div>
-              <a class="btn btn-block" data-book="Chichén Itzá" href="#contact">Réserver</a>
+          <article class="tour">
+            <div class="tour-img"><img src="images/bacalar.jpg" alt="Lagune de Bacalar" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>Bacalar</h3>
+              <p>La lagune aux sept couleurs, des eaux turquoise à perte de vue pour une journée inoubliable.</p>
+              <a class="link" data-tour="Bacalar" href="#contact">Réserver <span>→</span></a>
+            </div>
+          </article>
+          <article class="tour">
+            <div class="tour-img"><img src="images/sian-kaan.jpg" alt="Réserve de Sian Ka'an vue du ciel" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>Sian Ka'an</h3>
+              <p>Une réserve naturelle préservée, classée au patrimoine mondial de l'UNESCO, entre lagunes, mangroves et plages sauvages.</p>
+              <a class="link" data-tour="Sian Ka'an" href="#contact">Réserver <span>→</span></a>
+            </div>
+          </article>
+          <article class="tour">
+            <div class="tour-img"><img src="images/isla-mujeres.jpg" alt="Isla Mujeres" loading="lazy"></div>
+            <div class="tour-body">
+              <h3>Isla Mujeres en catamaran</h3>
+              <p>Navigation en catamaran, baignade et snorkeling dans les eaux turquoise d'Isla Mujeres.</p>
+              <a class="link" data-tour="Isla Mujeres catamaran" href="#contact">Réserver <span>→</span></a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="locations" class="section alt">
-      <div class="container">
-        <p class="eyebrow">Séjournez avec nous</p>
-        <h2>Locations touristiques</h2>
-        <div class="rentals">
-          <article class="rental">
-            <div class="card-img r-studio"></div>
-            <div class="card-body">
-              <h3>Studio Quinta Avenida</h3>
-              <ul class="features"><li>👥 2 pers.</li><li>🏖 5 min de la plage</li><li>📶 Wi-Fi</li><li>❄ Clim</li></ul>
-              <div class="meta"><span>par nuit</span><span class="price">dès 65 $</span></div>
-              <a class="btn btn-block" data-book="Studio Quinta Avenida" href="#contact">Demander les dates</a>
-            </div>
-          </article>
-          <article class="rental">
-            <div class="card-img r-apt"></div>
-            <div class="card-body">
-              <h3>Appartement Piscine &amp; Rooftop</h3>
-              <ul class="features"><li>👥 4 pers.</li><li>🏊 Piscine</li><li>🌅 Rooftop</li><li>🍳 Cuisine équipée</li></ul>
-              <div class="meta"><span>par nuit</span><span class="price">dès 110 $</span></div>
-              <a class="btn btn-block" data-book="Appartement Piscine & Rooftop" href="#contact">Demander les dates</a>
-            </div>
-          </article>
-          <article class="rental">
-            <div class="card-img r-villa"></div>
-            <div class="card-body">
-              <h3>Villa Jungle</h3>
-              <ul class="features"><li>👥 8 pers.</li><li>🌴 Jardin tropical</li><li>🏊 Piscine privée</li><li>🚗 Parking</li></ul>
-              <div class="meta"><span>par nuit</span><span class="price">dès 240 $</span></div>
-              <a class="btn btn-block" data-book="Villa Jungle" href="#contact">Demander les dates</a>
-            </div>
-          </article>
-        </div>
-        <p class="combo">💡 <strong>Pack séjour + tours :</strong> −10 % sur les excursions pour nos locataires !</p>
-      </div>
-    </section>
-
-    <section id="avis" class="section">
-      <div class="container">
-        <p class="eyebrow">Ils sont venus</p>
-        <h2>Avis de voyageurs</h2>
-        <div class="reviews">
-          <blockquote><p>« L'excursion aux cenotes était magique, guide adorable et super organisé. »</p><cite>★★★★★ — Exemple d'avis</cite></blockquote>
-          <blockquote><p>« Appartement impeccable, à deux pas de la 5e avenue. On reviendra ! »</p><cite>★★★★★ — Exemple d'avis</cite></blockquote>
-          <blockquote><p>« Chichén Itzá sans stress, tout était inclus. Je recommande. »</p><cite>★★★★★ — Exemple d'avis</cite></blockquote>
+    <section id="locations" class="section beige">
+      <div class="container split">
+        <div class="split-img"><img src="images/sian-kaan.jpg" alt="Côte de la Riviera Maya" loading="lazy"></div>
+        <div class="split-text">
+          <p class="kicker">Séjourner</p>
+          <h2>Locations de vacances</h2>
+          <p>Appartements et logements sélectionnés à Playa del Carmen, idéalement situés pour profiter de la plage, de la Quinta Avenida et de nos excursions.</p>
+          <ul class="checks">
+            <li>Logements équipés et confortables</li>
+            <li>Accueil et conseils personnalisés</li>
+            <li>Combinez séjour et excursions</li>
+          </ul>
+          <a href="#contact" class="btn btn-dark" data-tour="Location de vacances">Demander les disponibilités</a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact-section">
+    <section id="apropos" class="section">
+      <div class="container narrow center">
+        <p class="kicker">À propos</p>
+        <h2>Une autre façon de voyager</h2>
+        <p class="big">Vibe Riviera Maya est née d'un amour profond pour cette région. Notre mission : vous faire vivre les plus beaux endroits du Yucatán, avec le confort et l'attention que vous méritez.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section beige">
       <div class="container contact">
         <div>
-          <p class="eyebrow">Réservation</p>
-          <h2>Planifions vos vacances</h2>
-          <p>Envoyez-nous votre demande : nous vous répondons rapidement par WhatsApp ou e-mail avec les disponibilités.</p>
+          <p class="kicker">Réservation</p>
+          <h2>Planifions votre séjour</h2>
+          <p>Remplissez le formulaire : votre demande s'ouvrira directement dans WhatsApp.</p>
           <ul class="contact-list">
-            <li>📍 Playa del Carmen, Quintana Roo, Mexique</li>
-            <li>📱 WhatsApp : +52 000 000 0000</li>
-            <li>✉ contact@exemple.com</li>
+            <li><span>WhatsApp</span><a href="https://wa.me/529841306938" target="_blank" rel="noopener">+52 984 130 6938</a></li>
+            <li><span>Base</span>Playa del Carmen, Quintana Roo, Mexique</li>
           </ul>
         </div>
         <form class="form" id="contact-form">
           <label>Nom<input type="text" name="nom" required></label>
-          <label>Je souhaite réserver
+          <label>Excursion ou service
             <select name="offre" id="offre">
-              <option>Route des Cenotes</option>
-              <option>Tulum &amp; Akumal</option>
-              <option>Snorkeling Cozumel</option>
+              <option>El Cielo Cozumel</option>
               <option>Chichén Itzá</option>
-              <option>Studio Quinta Avenida</option>
-              <option>Appartement Piscine &amp; Rooftop</option>
-              <option>Villa Jungle</option>
-              <option>Autre / pack sur mesure</option>
+              <option>Tulum &amp; Cobá</option>
+              <option>Bacalar</option>
+              <option>Sian Ka'an</option>
+              <option>Isla Mujeres catamaran</option>
+              <option>Location de vacances</option>
+              <option>Autre demande</option>
             </select>
           </label>
           <div class="row">
             <label>Date<input type="date" name="date" required></label>
             <label>Personnes<input type="number" name="personnes" min="1" value="2" required></label>
           </div>
-          <label>Message<textarea name="message" rows="3" placeholder="Précisions, hôtel, questions…"></textarea></label>
-          <button type="submit" class="btn btn-block">Envoyer sur WhatsApp</button>
+          <label>Message<textarea name="message" rows="3" placeholder="Hôtel, questions, demandes particulières…"></textarea></label>
+          <button type="submit" class="btn btn-dark btn-block">Envoyer sur WhatsApp</button>
         </form>
       </div>
     </section>
   </main>
 
-  <a class="wa-float" href="https://wa.me/520000000000" target="_blank" rel="noopener" aria-label="Contact WhatsApp">💬</a>
-
   <footer class="footer">
-    <div class="container">© <span id="annee"></span> Playa Paraíso · Tours &amp; Locations à Playa del Carmen</div>
+    <div class="container footer-inner">
+      <span class="logo">Vibe <em>Riviera Maya</em></span>
+      <span>© <span id="annee"></span> · Playa del Carmen, Mexique</span>
+    </div>
   </footer>
+
+  <a class="wa-float" href="https://wa.me/529841306938" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg>
+  </a>
 
   <script src="script.js"></script>
 </body>
