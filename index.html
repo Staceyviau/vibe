@@ -107,6 +107,14 @@
               <a class="link" data-tour="Isla Mujeres catamaran" href="#contact">Réserver <span>→</span></a>
             </div>
           </article>
+          <article class="tour">
+            <div class="tour-img tour-img-text"><span>Xcaret</span></div>
+            <div class="tour-body">
+              <h3>Parc Xcaret</h3>
+              <p>Le célèbre parc éco-archéologique à quelques minutes de Playa del Carmen : rivières souterraines, plages, faune locale et grand spectacle du soir.</p>
+              <a class="link" data-tour="Xcaret" href="#contact">Réserver <span>→</span></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -126,7 +134,42 @@
           <a href="#contact" class="btn btn-dark" data-tour="Location de vacances">Demander les disponibilités</a>
         </div>
       </div>
+
+      <div class="container listings">
+        <article class="listing">
+          <div class="listing-gallery" data-gallery="maison-piscine" data-count="22">
+            <button class="g-main" data-index="0" aria-label="Voir les photos"><img src="images/maison-piscine/01.jpg" alt="Piscine privée de la maison" loading="lazy"></button>
+            <button class="g-thumb" data-index="1"><img src="images/maison-piscine/02-min.jpg" alt="Façade de la maison" loading="lazy"></button>
+            <button class="g-thumb" data-index="2"><img src="images/maison-piscine/03-min.jpg" alt="Salon" loading="lazy"></button>
+            <button class="g-thumb" data-index="6"><img src="images/maison-piscine/07-min.jpg" alt="Cuisine équipée" loading="lazy"></button>
+            <button class="g-thumb g-more" data-index="11"><img src="images/maison-piscine/12-min.jpg" alt="Chambre" loading="lazy"><span>Voir les 22 photos</span></button>
+          </div>
+          <div class="listing-body">
+            <p class="kicker">Maison entière</p>
+            <h3>Maison avec piscine privée</h3>
+            <p>Une maison lumineuse sur deux niveaux, entourée de palmiers, avec sa piscine privée et sa grande terrasse couverte. Idéale pour les familles et les groupes d'amis.</p>
+            <ul class="amenities">
+              <li>3 chambres</li>
+              <li>Piscine privée</li>
+              <li>Terrasse &amp; barbecue</li>
+              <li>Cuisine équipée</li>
+              <li>Climatisation</li>
+              <li>Lave-linge &amp; sèche-linge</li>
+            </ul>
+            <p class="price-note">Tarif et disponibilités sur demande</p>
+            <a href="#contact" class="btn btn-dark" data-tour="Maison avec piscine privée">Réserver cette maison</a>
+          </div>
+        </article>
+      </div>
     </section>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-close" aria-label="Fermer">×</button>
+      <button class="lb-prev" aria-label="Photo précédente">‹</button>
+      <img alt="">
+      <button class="lb-next" aria-label="Photo suivante">›</button>
+      <span class="lb-count"></span>
+    </div>
 
     <section id="apropos" class="section">
       <div class="container narrow center">
@@ -157,6 +200,8 @@
               <option>Bacalar</option>
               <option>Sian Ka'an</option>
               <option>Isla Mujeres catamaran</option>
+              <option>Xcaret</option>
+              <option>Maison avec piscine privée</option>
               <option>Location de vacances</option>
               <option>Autre demande</option>
             </select>
