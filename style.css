@@ -159,7 +159,7 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .price-note { font-family: var(--serif); font-size: 1.3rem; color: var(--ink) !important; margin-bottom: 1.5rem; }
 
 /* Visionneuse photos */
-.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(20,17,14,.94); display: flex; align-items: center; justify-content: center; }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(20,17,14,.98); display: flex; align-items: center; justify-content: center; }
 .lightbox[hidden] { display: none; }
 .lightbox img { max-width: 92vw; max-height: 86vh; object-fit: contain; }
 .lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 2.6rem; cursor: pointer; padding: 1rem; line-height: 1; }
@@ -178,3 +178,8 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
   .amenities { grid-template-columns: 1fr; }
 }
 .listing-gallery button { font-family: var(--sans); }
+.listing-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.listing-actions .btn { flex: 1 1 200px; }
+.btn-outline-dark { background: transparent; border-color: var(--ink); color: var(--ink); }
+.btn-outline-dark:hover { background: var(--ink); color: var(--ivory); }
+.lightbox video { max-width: 92vw; max-height: 88vh; background: #000; }

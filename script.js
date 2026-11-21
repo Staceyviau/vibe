@@ -73,3 +73,22 @@ document.addEventListener("keydown", e => {
 let tx = 0;
 lb.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
 lb.addEventListener("touchend", e => { const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 40) show(idx + (d < 0 ? 1 : -1)); });
+
+// Visite vidéo
+const vb = document.getElementById("videobox");
+const vid = vb.querySelector("video");
+document.querySelectorAll(".js-video").forEach(b => b.addEventListener("click", () => {
+  vid.poster = b.dataset.poster;
+  vid.src = b.dataset.src;
+  vb.hidden = false;
+  document.body.style.overflow = "hidden";
+  vid.play().catch(() => {});
+}));
+function closeVb() {
+  vid.pause();
+  vb.hidden = true;
+  document.body.style.overflow = "";
+}
+vb.querySelector(".lb-close").addEventListener("click", closeVb);
+vb.addEventListener("click", e => { if (e.target === vb) closeVb(); });
+document.addEventListener("keydown", e => { if (!vb.hidden && e.key === "Escape") closeVb(); });
