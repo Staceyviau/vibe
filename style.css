@@ -132,3 +132,4 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 /* Tour sans photo */
 .tour-img-text { background: linear-gradient(150deg, var(--beige), var(--sand)); display: grid; place-items: center; }
 .tour-img-text span { font-family: var(--serif); font-style: italic; font-size: 3rem; color: var(--bronze); }
+.hero h1 .kicker { display: block; font-family: var(--sans); font-style: normal; font-weight: 400; font-size: .75rem; line-height: 1.6; margin-bottom: 1.2rem; }
