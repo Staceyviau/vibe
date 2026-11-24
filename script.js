@@ -34,62 +34,37 @@ if (tourParam) {
   if (opt) select.value = opt.value;
 }
 
-// Réservation en ligne : envoi par e-mail à vibe.rivieramaya@gmail.com
-// Service principal : Web3Forms si une clé est renseignée, sinon FormSubmit.
-// Si l'envoi échoue ou ne répond pas, le client peut envoyer sa demande par e-mail ou WhatsApp.
+// Réservation : la demande part par e-mail (messagerie du client) vers viberivieramaya@gmail.com,
+// ou par WhatsApp. Aucun service extérieur : rien ne peut tomber en panne.
 const EMAIL = "viberivieramaya@gmail.com";
-const WEB3FORMS_KEY = "cc40b092-0033-42b9-8b1f-2b786b70a294"; // clé publique Web3Forms (envoi vers viberivieramaya@gmail.com)
 const bookingForm = document.getElementById("contact-form");
 const bookingStatus = document.getElementById("booking-status");
 const val = (f, k) => (f.get(k) || "").toString().trim();
 
-async function postForm(data) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 12000);
-  try {
-    let url, body;
-    if (WEB3FORMS_KEY) {
-      url = "https://api.web3forms.com/submit";
-      const { _subject, _replyto, _template, ...fields } = data;
-      body = { access_key: WEB3FORMS_KEY, subject: _subject, from_name: "Site Vibe Riviera Maya", replyto: _replyto, ...fields };
-    } else {
-      url = `https://formsubmit.co/ajax/${EMAIL}`;
-      body = data;
-    }
-    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body), signal: ctrl.signal });
-    const j = await r.json().catch(() => ({}));
-    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Erreur");
-    return true;
-  } finally { clearTimeout(timer); }
+function toText(data) {
+  return "Bonjour Vibe Riviera Maya !\n\n" + Object.entries(data).filter(([, v]) => v).map(([k, v]) => `${k} : ${v}`).join("\n");
 }
 
-function fallbackButtons(statusEl, subject, text) {
-  statusEl.className = "form-status err";
+function sendByEmail(subject, data, statusEl, thanks) {
+  const body = toText(data);
+  window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  statusEl.className = "form-status ok";
   statusEl.innerHTML = "";
-  const msg = document.createElement("span");
-  msg.textContent = "L'envoi automatique n'a pas fonctionné. Envoyez votre demande en un clic :";
-  const box = document.createElement("span"); box.className = "fallback-btns";
-  const mail = document.createElement("a"); mail.className = "btn btn-dark";
-  mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-  mail.textContent = "Envoyer par e-mail";
+  const t = document.createElement("p"); t.className = "st-title"; t.textContent = thanks;
+  const s1 = document.createElement("p");
+  s1.textContent = "Votre application e-mail vient de s'ouvrir avec votre demande déjà écrite. Il ne vous reste qu'à appuyer sur « Envoyer ».";
+  const s2 = document.createElement("p"); s2.className = "st-small";
+  s2.textContent = `Votre messagerie ne s'est pas ouverte ? Copiez votre demande et envoyez-la à ${EMAIL}, ou écrivez-nous sur WhatsApp.`;
+  const row = document.createElement("span"); row.className = "fallback-btns";
+  const copyBtn = document.createElement("button"); copyBtn.type = "button"; copyBtn.className = "btn btn-dark"; copyBtn.textContent = "Copier ma demande";
+  copyBtn.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(`À : ${EMAIL}\nObjet : ${subject}\n\n${body}`); copyBtn.textContent = "Demande copiée ✓"; }
+    catch (e) { copyBtn.textContent = EMAIL; }
+  });
   const wa = document.createElement("a"); wa.className = "btn btn-wa"; wa.target = "_blank"; wa.rel = "noopener";
-  wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
-  wa.textContent = "Envoyer sur WhatsApp";
-  box.append(mail, wa);
-  statusEl.append(msg, box);
-}
-
-async function sendForm(data, statusEl, okMsg) {
-  statusEl.className = "form-status"; statusEl.textContent = "Envoi en cours…";
-  try {
-    await postForm(data);
-    statusEl.className = "form-status ok"; statusEl.textContent = okMsg;
-    return true;
-  } catch (e) {
-    const text = Object.entries(data).filter(([k, v]) => !k.startsWith("_") && v).map(([k, v]) => `${k} : ${v}`).join("\n");
-    fallbackButtons(statusEl, data._subject || "Demande depuis le site", "Bonjour Vibe Riviera Maya !\n\n" + text);
-    return false;
-  }
+  wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(body)}`; wa.textContent = "Envoyer sur WhatsApp";
+  row.append(copyBtn, wa);
+  statusEl.append(t, s1, s2, row);
 }
 
 function waMessage(f) {
@@ -100,19 +75,15 @@ function waMessage(f) {
     (val(f, "message") ? `Message : ${val(f, "message")}` : "");
 }
 
-bookingForm.addEventListener("submit", async e => {
+bookingForm.addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(bookingForm);
   if (val(f, "_honey")) return;
-  const ok = await sendForm({
-    _subject: `Nouvelle réservation : ${val(f, "offre")} le ${val(f, "date")}`,
-    _template: "table",
-    _replyto: val(f, "email"),
+  sendByEmail(`Réservation : ${val(f, "offre")} le ${val(f, "date")}`, {
     "Nom": val(f, "nom"), "E-mail": val(f, "email"), "WhatsApp / téléphone": val(f, "telephone"),
     "Excursion": val(f, "offre"), "Date": val(f, "date"), "Adultes": val(f, "adultes"), "Enfants": val(f, "enfants") || "0",
     "Hôtel / point de rencontre": val(f, "hotel"), "Message": val(f, "message"),
-  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} ! Votre demande pour « ${val(f, "offre")} » est bien envoyée. Stacey vous confirme la disponibilité très vite par e-mail ou WhatsApp.`);
-  if (ok) { bookingForm.reset(); bookingStatus.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} !`);
 });
 
 document.getElementById("wa-send").addEventListener("click", () => {
@@ -141,17 +112,14 @@ if (AVIS.length) {
   });
 }
 const reviewForm = document.getElementById("review-form");
-reviewForm.addEventListener("submit", async e => {
+reviewForm.addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(reviewForm);
   if (val(f, "_honey")) return;
-  const ok = await sendForm({
-    _subject: `Nouvel avis client (${val(f, "note")}/5) : ${val(f, "excursion")}`,
-    _template: "table",
+  sendByEmail(`Avis client (${val(f, "note")}/5) : ${val(f, "excursion")}`, {
     "Prénom": val(f, "prenom"), "Ville ou pays": val(f, "origine"), "Excursion": val(f, "excursion"),
-    "Note": `${val(f, "note")} / 5`, "Avis": val(f, "avis"), "E-mail (privé)": val(f, "email"),
-  }, document.getElementById("review-status"), "Merci pour votre avis ! Il sera publié après vérification.");
-  if (ok) reviewForm.reset();
+    "Note": `${val(f, "note")} / 5`, "Avis": val(f, "avis"),
+  }, document.getElementById("review-status"), "Merci pour votre avis !");
 });
 
 

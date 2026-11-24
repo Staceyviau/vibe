@@ -373,3 +373,6 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .form-status.ok { background: #e7f4ec; color: #22603b; padding: 1rem 1.1rem; font-size: 1rem; border-left: 3px solid #2f7d4f; }
 @media (max-width: 760px) { .ways { grid-template-columns: minmax(0, 1fr); } }
 .way { align-content: start; }
+.form-status.ok p { margin: 0 0 .5rem; }
+.form-status .st-title { font-family: var(--serif); font-size: 1.5rem; }
+.form-status .st-small { font-size: .85rem; opacity: .85; }
