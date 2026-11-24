@@ -34,37 +34,59 @@ if (tourParam) {
   if (opt) select.value = opt.value;
 }
 
-// Réservation : la demande part par e-mail (messagerie du client) vers viberivieramaya@gmail.com,
-// ou par WhatsApp. Aucun service extérieur : rien ne peut tomber en panne.
+// Réservation : envoi automatique (Web3Forms) vers viberivieramaya@gmail.com ;
+// en cas d'échec, le client peut envoyer sa demande déjà rédigée par e-mail ou WhatsApp.
 const EMAIL = "viberivieramaya@gmail.com";
 const bookingForm = document.getElementById("contact-form");
 const bookingStatus = document.getElementById("booking-status");
 const val = (f, k) => (f.get(k) || "").toString().trim();
 
+const WEB3FORMS_KEY = "cc40b092-0033-42b9-8b1f-2b786b70a294"; // clé publique Web3Forms → viberivieramaya@gmail.com
+
+async function sendAuto(subject, data, replyto) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const r = await fetch("https://api.web3forms.com/submit", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, signal: ctrl.signal,
+      body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: "Site Vibe Riviera Maya", ...(replyto ? { replyto } : {}), ...data }),
+    });
+    const j = await r.json().catch(() => ({}));
+    return r.ok && j.success === true;
+  } catch (e) { return false; } finally { clearTimeout(timer); }
+}
+
+async function submitForm(subject, data, statusEl, okTitle, okText, replyto, form, button) {
+  statusEl.className = "form-status"; statusEl.textContent = "Envoi en cours…";
+  if (button) button.disabled = true;
+  const ok = await sendAuto(subject, data, replyto);
+  if (button) button.disabled = false;
+  if (ok) {
+    statusEl.className = "form-status ok"; statusEl.innerHTML = "";
+    const t = document.createElement("p"); t.className = "st-title"; t.textContent = okTitle;
+    const m = document.createElement("p"); m.textContent = okText;
+    statusEl.append(t, m); form.reset();
+    statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    showFallback(subject, data, statusEl);
+  }
+}
+
 function toText(data) {
   return "Bonjour Vibe Riviera Maya !\n\n" + Object.entries(data).filter(([, v]) => v).map(([k, v]) => `${k} : ${v}`).join("\n");
 }
 
-function sendByEmail(subject, data, statusEl, thanks) {
+function showFallback(subject, data, statusEl) {
   const body = toText(data);
-  window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  statusEl.className = "form-status ok";
-  statusEl.innerHTML = "";
-  const t = document.createElement("p"); t.className = "st-title"; t.textContent = thanks;
-  const s1 = document.createElement("p");
-  s1.textContent = "Votre application e-mail vient de s'ouvrir avec votre demande déjà écrite. Il ne vous reste qu'à appuyer sur « Envoyer ».";
-  const s2 = document.createElement("p"); s2.className = "st-small";
-  s2.textContent = `Votre messagerie ne s'est pas ouverte ? Copiez votre demande et envoyez-la à ${EMAIL}, ou écrivez-nous sur WhatsApp.`;
+  statusEl.className = "form-status err"; statusEl.innerHTML = "";
+  const t = document.createElement("p");
+  t.textContent = "L'envoi automatique n'a pas abouti. Envoyez votre demande en un clic, elle est déjà rédigée :";
   const row = document.createElement("span"); row.className = "fallback-btns";
-  const copyBtn = document.createElement("button"); copyBtn.type = "button"; copyBtn.className = "btn btn-dark"; copyBtn.textContent = "Copier ma demande";
-  copyBtn.addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(`À : ${EMAIL}\nObjet : ${subject}\n\n${body}`); copyBtn.textContent = "Demande copiée ✓"; }
-    catch (e) { copyBtn.textContent = EMAIL; }
-  });
+  const mail = document.createElement("a"); mail.className = "btn btn-dark";
+  mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; mail.textContent = "Envoyer par e-mail";
   const wa = document.createElement("a"); wa.className = "btn btn-wa"; wa.target = "_blank"; wa.rel = "noopener";
   wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(body)}`; wa.textContent = "Envoyer sur WhatsApp";
-  row.append(copyBtn, wa);
-  statusEl.append(t, s1, s2, row);
+  row.append(mail, wa); statusEl.append(t, row);
 }
 
 function waMessage(f) {
@@ -79,11 +101,13 @@ bookingForm.addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(bookingForm);
   if (val(f, "_honey")) return;
-  sendByEmail(`Réservation : ${val(f, "offre")} le ${val(f, "date")}`, {
+  submitForm(`Nouvelle réservation : ${val(f, "offre")} le ${val(f, "date")}`, {
     "Nom": val(f, "nom"), "E-mail": val(f, "email"), "WhatsApp / téléphone": val(f, "telephone"),
     "Excursion": val(f, "offre"), "Date": val(f, "date"), "Adultes": val(f, "adultes"), "Enfants": val(f, "enfants") || "0",
     "Hôtel / point de rencontre": val(f, "hotel"), "Message": val(f, "message"),
-  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} !`);
+  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} !`,
+     `Votre demande pour « ${val(f, "offre")} » est bien envoyée. Stacey vous confirme la disponibilité très vite par e-mail ou WhatsApp.`,
+     val(f, "email"), bookingForm, bookingForm.querySelector('button[type="submit"]'));
 });
 
 document.getElementById("wa-send").addEventListener("click", () => {
@@ -116,10 +140,11 @@ reviewForm.addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(reviewForm);
   if (val(f, "_honey")) return;
-  sendByEmail(`Avis client (${val(f, "note")}/5) : ${val(f, "excursion")}`, {
+  submitForm(`Nouvel avis client (${val(f, "note")}/5) : ${val(f, "excursion")}`, {
     "Prénom": val(f, "prenom"), "Ville ou pays": val(f, "origine"), "Excursion": val(f, "excursion"),
     "Note": `${val(f, "note")} / 5`, "Avis": val(f, "avis"),
-  }, document.getElementById("review-status"), "Merci pour votre avis !");
+  }, document.getElementById("review-status"), "Merci pour votre avis !", "Il sera publié sur le site après vérification.",
+     "", reviewForm, reviewForm.querySelector('button[type="submit"]'));
 });
 
 

@@ -376,3 +376,4 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .form-status.ok p { margin: 0 0 .5rem; }
 .form-status .st-title { font-family: var(--serif); font-size: 1.5rem; }
 .form-status .st-small { font-size: .85rem; opacity: .85; }
+.btn:disabled { opacity: .6; cursor: wait; }
