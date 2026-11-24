@@ -38,7 +38,7 @@ if (tourParam) {
 // Service principal : Web3Forms si une clé est renseignée, sinon FormSubmit.
 // Si l'envoi échoue ou ne répond pas, le client peut envoyer sa demande par e-mail ou WhatsApp.
 const EMAIL = "viberivieramaya@gmail.com";
-const WEB3FORMS_KEY = ""; // clé d'accès Web3Forms (à coller ici)
+const WEB3FORMS_KEY = "cc40b092-0033-42b9-8b1f-2b786b70a294"; // clé publique Web3Forms (envoi vers viberivieramaya@gmail.com)
 const bookingForm = document.getElementById("contact-form");
 const bookingStatus = document.getElementById("booking-status");
 const val = (f, k) => (f.get(k) || "").toString().trim();
