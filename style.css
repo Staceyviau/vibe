@@ -152,3 +152,5 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .nav.scrolled .logo-rm, .nav.open .logo-rm { color: #a8616c; }
 .logo-exc { font-family: var(--serif); font-style: italic; font-size: .8rem; letter-spacing: .04em; margin-top: .2rem; opacity: .85; }
 .footer .logo-mark { color: #e2b3b9; }
+.logo-rm { font-size: .82rem; font-weight: 500; letter-spacing: .26em; margin-top: .25rem; }
+.logo-vibe { font-size: 1.6rem; }
