@@ -352,3 +352,24 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 @media (max-width: 560px) { .vbot-open { padding: 0; } .vbot-open .vbot-avatar { width: 54px; height: 54px; } }
 .fallback-btns { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .7rem; }
 .fallback-btns .btn { flex: 1 1 180px; padding: .8rem 1rem; }
+
+/* Contact & réservation (refonte) */
+.ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.way { background: var(--white); padding: 1.4rem 1.5rem; display: grid; gap: .3rem; border: 1px solid transparent; transition: border-color .2s, transform .2s; }
+.way:hover { border-color: var(--sand); transform: translateY(-2px); }
+.way-n { width: 2rem; height: 2rem; border-radius: 50%; background: var(--beige); color: var(--bronze); display: grid; place-items: center; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; margin-bottom: .4rem; }
+.way strong { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+.way span:last-child { color: var(--muted); font-size: .92rem; overflow-wrap: anywhere; }
+.way-wa .way-n { background: #25d366; color: #fff; }
+.contact-side h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+.steps-list { list-style: none; counter-reset: st; display: grid; gap: 1rem; margin-bottom: 2rem; }
+.steps-list li { counter-increment: st; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); column-gap: .8rem; }
+.steps-list li::before { content: counter(st); grid-row: 1 / 3; width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--bronze); color: var(--bronze); display: grid; place-items: center; font-family: var(--serif); font-weight: 600; }
+.steps-list strong { font-weight: 500; }
+.steps-list span { color: var(--muted); font-size: .92rem; }
+.contact-list a { overflow-wrap: anywhere; }
+.form-title h3 { font-size: 1.7rem; margin-bottom: .2rem; }
+.form-title p { font-size: .8rem; color: var(--muted); margin: 0; }
+.form-status.ok { background: #e7f4ec; color: #22603b; padding: 1rem 1.1rem; font-size: 1rem; border-left: 3px solid #2f7d4f; }
+@media (max-width: 760px) { .ways { grid-template-columns: minmax(0, 1fr); } }
+.way { align-content: start; }

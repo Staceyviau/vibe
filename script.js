@@ -37,7 +37,7 @@ if (tourParam) {
 // Réservation en ligne : envoi par e-mail à vibe.rivieramaya@gmail.com
 // Service principal : Web3Forms si une clé est renseignée, sinon FormSubmit.
 // Si l'envoi échoue ou ne répond pas, le client peut envoyer sa demande par e-mail ou WhatsApp.
-const EMAIL = "vibe.rivieramaya@gmail.com";
+const EMAIL = "viberivieramaya@gmail.com";
 const WEB3FORMS_KEY = ""; // clé d'accès Web3Forms (à coller ici)
 const bookingForm = document.getElementById("contact-form");
 const bookingStatus = document.getElementById("booking-status");
@@ -111,8 +111,8 @@ bookingForm.addEventListener("submit", async e => {
     "Nom": val(f, "nom"), "E-mail": val(f, "email"), "WhatsApp / téléphone": val(f, "telephone"),
     "Excursion": val(f, "offre"), "Date": val(f, "date"), "Adultes": val(f, "adultes"), "Enfants": val(f, "enfants") || "0",
     "Hôtel / point de rencontre": val(f, "hotel"), "Message": val(f, "message"),
-  }, bookingStatus, "Merci ! Votre demande de réservation est bien envoyée. Nous vous confirmons la disponibilité très vite par e-mail ou WhatsApp.");
-  if (ok) bookingForm.reset();
+  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} ! Votre demande pour « ${val(f, "offre")} » est bien envoyée. Stacey vous confirme la disponibilité très vite par e-mail ou WhatsApp.`);
+  if (ok) { bookingForm.reset(); bookingStatus.scrollIntoView({ behavior: "smooth", block: "center" }); }
 });
 
 document.getElementById("wa-send").addEventListener("click", () => {

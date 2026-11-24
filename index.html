@@ -164,7 +164,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=202611241838">
+  <link rel="stylesheet" href="style.css?v=202611241839">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -447,25 +447,53 @@
     </section>
 
     <section id="contact" class="section beige">
-      <div class="container contact">
-        <div>
-          <p class="kicker">Réservation</p>
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Contact &amp; réservation</p>
           <h2>Réservez votre excursion</h2>
-          <p>Remplissez le formulaire : votre demande de réservation nous est envoyée directement. Nous vous confirmons la disponibilité, l'horaire et le prix final par e-mail ou WhatsApp.</p>
-          <p class="small-note">Aucun paiement en ligne : votre place est confirmée après vérification de la disponibilité.</p>
+          <p class="sub">Choisissez la façon qui vous convient. Stacey vous répond personnellement pour confirmer la date, l'horaire et le prix.</p>
+        </div>
+        <div class="ways">
+          <a class="way" href="#contact-form">
+            <span class="way-n">1</span>
+            <strong>Formulaire en ligne</strong>
+            <span>Remplissez le formulaire ci-dessous : votre demande arrive directement par e-mail.</span>
+          </a>
+          <a class="way way-wa" href="https://wa.me/529841306938?text=Bonjour%20Vibe%20Riviera%20Maya%20!%20J%27aimerais%20r%C3%A9server%20une%20excursion." target="_blank" rel="noopener">
+            <span class="way-n">2</span>
+            <strong>WhatsApp</strong>
+            <span>+52 984 130 6938 · la réponse la plus rapide</span>
+          </a>
+          <a class="way" href="mailto:viberivieramaya@gmail.com?subject=R%C3%A9servation%20d%27excursion">
+            <span class="way-n">3</span>
+            <strong>E-mail</strong>
+            <span>viberivieramaya@gmail.com</span>
+          </a>
+        </div>
+      </div>
+      <div class="container contact">
+        <div class="contact-side">
+          <h3>Comment ça se passe ?</h3>
+          <ol class="steps-list">
+            <li><strong>Vous envoyez votre demande</strong><span>Excursion, date, nombre de personnes et hôtel.</span></li>
+            <li><strong>Stacey vérifie la disponibilité</strong><span>Elle vous confirme l'horaire, le point de rencontre et le prix final.</span></li>
+            <li><strong>Votre place est réservée</strong><span>Les modalités de paiement vous sont expliquées à la confirmation. Aucun paiement sur le site.</span></li>
+          </ol>
           <ul class="contact-list">
             <li><span>WhatsApp</span><a href="https://wa.me/529841306938" target="_blank" rel="noopener">+52 984 130 6938</a></li>
+            <li><span>E-mail</span><a href="mailto:viberivieramaya@gmail.com">viberivieramaya@gmail.com</a></li>
             <li><span>Base</span>Playa del Carmen, Quintana Roo, Mexique</li>
             <li><span>Facebook</span><a href="https://www.facebook.com/share/1cHVbamGMn/" target="_blank" rel="noopener">Suivez-nous sur Facebook</a></li>
           </ul>
         </div>
         <form class="form" id="contact-form">
-          <label>Nom complet<input type="text" name="nom" id="bk-nom" required autocomplete="name"></label>
+          <div class="form-title"><h3>Formulaire de réservation</h3><p>Les champs marqués * sont obligatoires.</p></div>
+          <label>Nom complet *<input type="text" name="nom" id="bk-nom" required autocomplete="name"></label>
           <div class="row">
-            <label>E-mail<input type="email" name="email" id="bk-email" required autocomplete="email"></label>
+            <label>E-mail *<input type="email" name="email" id="bk-email" required autocomplete="email"></label>
             <label>WhatsApp / téléphone<input type="tel" name="telephone" id="bk-tel" autocomplete="tel" placeholder="+1 514…"></label>
           </div>
-          <label>Excursion
+          <label>Excursion *
             <select name="offre" id="offre">
               <optgroup label="Excursions phares">
                 <option>El Cielo Cozumel</option>
@@ -531,14 +559,14 @@
             </select>
           </label>
           <div class="row row-3">
-            <label>Date<input type="date" name="date" id="bk-date" required></label>
-            <label>Adultes<input type="number" name="adultes" id="bk-adultes" min="1" value="2" required></label>
+            <label>Date *<input type="date" name="date" id="bk-date" required></label>
+            <label>Adultes *<input type="number" name="adultes" id="bk-adultes" min="1" value="2" required></label>
             <label>Enfants<input type="number" name="enfants" id="bk-enfants" min="0" value="0"></label>
           </div>
           <label>Hôtel ou point de rencontre<input type="text" name="hotel" id="bk-hotel" placeholder="Nom de l'hôtel, quartier…"></label>
           <label>Message<textarea name="message" id="bk-message" rows="3" placeholder="Questions, demandes particulières…"></textarea></label>
           <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="btn btn-dark btn-block">Envoyer ma réservation</button>
+          <button type="submit" class="btn btn-dark btn-block">Envoyer ma demande de réservation</button>
           <button type="button" class="btn btn-wa btn-block" id="wa-send">Ou réserver sur WhatsApp</button>
           <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
         </form>
@@ -558,8 +586,8 @@
     <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg>
   </a>
 
-  <script src="script.js?v=202611241838"></script>
-  <script src="chatbot.js?v=202611241838"></script>
+  <script src="script.js?v=202611241839"></script>
+  <script src="chatbot.js?v=202611241839"></script>
   <!-- Metricool : statistiques de visites -->
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"cdc0f6ff38dfe35e6181c068db9b3a6c"})});</script>
 </body>
