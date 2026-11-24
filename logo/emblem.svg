@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="50" cy="50" r="46"/>
-  <!-- soleil levant -->
-  <path d="M36 44 A14 14 0 0 1 64 44"/>
-  <path d="M50 24 V19 M36.5 29.5 L33 26 M63.5 29.5 L67 26 M30.5 39 L25.8 37.5 M69.5 39 L74.2 37.5"/>
-  <!-- pyramide maya -->
-  <path d="M24 67 H29 V62 H34 V57 H39 V52 H44 V47 H56 V52 H61 V57 H66 V62 H71 V67 H76"/>
-  <path d="M46.5 47 V42.5 H53.5 V47"/>
-  <path d="M50 47 V67" stroke-width="1.4"/>
-  <!-- vagues -->
-  <path d="M28 74 q5.5 -3.5 11 0 t11 0 t11 0 t11 0"/>
-  <path d="M34 80 q4 -2.6 8 0 t8 0 t8 0 t8 0"/>
-</svg>
+<circle cx="50" cy="50" r="46"/>
+<circle cx="66" cy="32" r="8"/>
+<path d="M66 18 V15 M77 22 l2 -2 M80 32 h3 M55 22 l-2 -2"/>
+<path d="M36 70 C37 58 39 46 45 34"/>
+<path d="M45 34 c-6 -5 -15 -4 -20 2"/>
+<path d="M45 34 c-3 -8 -11 -11 -18 -9"/>
+<path d="M45 34 c1 -8 7 -12 14 -11"/>
+<path d="M45 34 c7 -1 12 4 13 10"/>
+<path d="M45 34 c-6 2 -10 8 -10 14"/>
+<path d="M56 64 h22 l-4 4.5 h-14 z"/>
+<path d="M67 64 V44 l9 17 h-9"/>
+<path d="M66 47 l-7 14 h7"/>
+<path d="M24 74 q6.5 -4 13 0 t13 0 t13 0 t13 0"/>
+<path d="M32 81 q4.5 -2.8 9 0 t9 0 t9 0 t9 0"/></svg>

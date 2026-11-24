@@ -145,3 +145,10 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .logo-vibe { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.75rem; }
 .logo-rm { font-family: var(--sans); font-weight: 400; font-size: .6rem; letter-spacing: .38em; text-transform: uppercase; margin-top: .15rem; }
 .footer .logo-mark { color: var(--sand); }
+
+/* Logo rose & beige */
+.logo-mark { color: #c98a93; }
+.nav:not(.scrolled):not(.open) .logo-mark { color: #f6e4e2; }
+.nav.scrolled .logo-rm, .nav.open .logo-rm { color: #a8616c; }
+.logo-exc { font-family: var(--serif); font-style: italic; font-size: .8rem; letter-spacing: .04em; margin-top: .2rem; opacity: .85; }
+.footer .logo-mark { color: #e2b3b9; }
