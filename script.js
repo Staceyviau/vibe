@@ -43,7 +43,6 @@ const val = (f, k) => (f.get(k) || "").toString().trim();
 
 const WEB3FORMS_KEY = "cc40b092-0033-42b9-8b1f-2b786b70a294"; // clé publique Web3Forms → viberivieramaya@gmail.com
 
-const FORMSUBMIT_ID = "d6d17f4acf1c6b4d9e85cf68df698246"; // FormSubmit → viberivieramaya@gmail.com
 
 async function postJSON(url, body) {
   const ctrl = new AbortController();
@@ -55,9 +54,8 @@ async function postJSON(url, body) {
   } catch (e) { return false; } finally { clearTimeout(timer); }
 }
 
-// 1) FormSubmit, 2) Web3Forms en secours
+// Envoi automatique via Web3Forms → viberivieramaya@gmail.com
 async function sendAuto(subject, data, replyto) {
-  if (await postJSON(`https://formsubmit.co/ajax/${FORMSUBMIT_ID}`, { _subject: subject, _template: "table", _captcha: "false", ...(replyto ? { _replyto: replyto } : {}), ...data })) return true;
   return sendWeb3(subject, data, replyto);
 }
 
