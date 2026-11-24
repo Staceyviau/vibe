@@ -208,3 +208,35 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
   .pr-cat > summary span { font-size: 1.45rem; }
   .price { min-width: 0; }
 }
+
+/* Réservation en ligne */
+.small-note { font-size: .85rem; color: var(--bronze); margin-top: .8rem; }
+.row-3 { grid-template-columns: 1.4fr 1fr 1fr; }
+.btn-wa { background: transparent; border-color: #25a85a; color: #1d8a49; }
+.btn-wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
+.form-status { font-size: .92rem; min-height: 1.2em; margin: 0; }
+.form-status.ok { color: #2f7d4f; }
+.form-status.err { color: #b3402f; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Avis */
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.review { background: var(--white); padding: 1.8rem; margin: 0; }
+.r-stars { color: #c98a93; letter-spacing: .15em; font-size: 1.1rem; margin-bottom: .6rem; }
+.r-text { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; margin-bottom: 1rem; }
+.review footer { font-size: .85rem; color: var(--muted); }
+.review footer strong { color: var(--ink); font-weight: 500; }
+.reviews-empty { text-align: center; color: var(--muted); max-width: 560px; margin: 0 auto 2rem; }
+.review-box { max-width: 640px; margin: 0 auto; text-align: center; }
+.review-box > summary { list-style: none; display: inline-block; }
+.review-box > summary::-webkit-details-marker { display: none; }
+.review-form { margin-top: 1.5rem; text-align: left; background: var(--beige); }
+.stars { border: 0; padding: 0; margin: 0; display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: .2rem; }
+.stars legend { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; width: 100%; }
+.stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.stars label { font-size: 2rem; color: var(--sand); cursor: pointer; letter-spacing: 0; text-transform: none; line-height: 1; }
+.stars input:checked ~ label, .stars label:hover, .stars label:hover ~ label { color: #c98a93; }
+.stars input:focus-visible + label { outline: 2px solid #c98a93; outline-offset: 2px; }
+@media (max-width: 560px) { .row-3 { grid-template-columns: 1fr 1fr; } .row-3 label:first-child { grid-column: 1 / -1; } }
+.btn-outline-dark { background: transparent; border-color: var(--ink); color: var(--ink); cursor: pointer; }
+.btn-outline-dark:hover { background: var(--ink); color: var(--ivory); }

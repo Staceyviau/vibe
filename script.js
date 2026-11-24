@@ -28,16 +28,87 @@ document.querySelectorAll("[data-tour]").forEach(el => {
   el.addEventListener("click", () => { select.value = el.dataset.tour; });
 });
 
-// Envoi du formulaire vers WhatsApp
-document.getElementById("contact-form").addEventListener("submit", e => {
+// Réservation en ligne (e-mail via FormSubmit) + option WhatsApp
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/vibe.rivieramaya@gmail.com";
+const bookingForm = document.getElementById("contact-form");
+const bookingStatus = document.getElementById("booking-status");
+const val = (f, k) => (f.get(k) || "").toString().trim();
+
+async function sendForm(data, statusEl, okMsg) {
+  statusEl.className = "form-status"; statusEl.textContent = "Envoi en cours…";
+  try {
+    const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Erreur");
+    statusEl.className = "form-status ok"; statusEl.textContent = okMsg;
+    return true;
+  } catch (e) {
+    statusEl.className = "form-status err";
+    statusEl.textContent = "L'envoi n'a pas fonctionné. Réessayez dans un instant, ou écrivez-nous sur WhatsApp au +52 984 130 6938.";
+    return false;
+  }
+}
+
+function waMessage(f) {
+  return `Bonjour Vibe Riviera Maya ! Je m'appelle ${val(f, "nom")}.\n` +
+    `Je souhaite réserver : ${val(f, "offre")}\n` +
+    `Date : ${val(f, "date")} · Adultes : ${val(f, "adultes")} · Enfants : ${val(f, "enfants") || 0}\n` +
+    (val(f, "hotel") ? `Hôtel : ${val(f, "hotel")}\n` : "") +
+    (val(f, "message") ? `Message : ${val(f, "message")}` : "");
+}
+
+bookingForm.addEventListener("submit", async e => {
   e.preventDefault();
-  const f = new FormData(e.target);
-  const texte =
-    `Bonjour Vibe Riviera Maya ! Je m'appelle ${f.get("nom")}.\n` +
-    `Je suis intéressé(e) par : ${f.get("offre")}\n` +
-    `Date : ${f.get("date")} — Personnes : ${f.get("personnes")}\n` +
-    (f.get("message") ? `Message : ${f.get("message")}` : "");
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texte)}`, "_blank");
+  const f = new FormData(bookingForm);
+  if (val(f, "_honey")) return;
+  const ok = await sendForm({
+    _subject: `Nouvelle réservation : ${val(f, "offre")} le ${val(f, "date")}`,
+    _template: "table",
+    _replyto: val(f, "email"),
+    "Nom": val(f, "nom"), "E-mail": val(f, "email"), "WhatsApp / téléphone": val(f, "telephone"),
+    "Excursion": val(f, "offre"), "Date": val(f, "date"), "Adultes": val(f, "adultes"), "Enfants": val(f, "enfants") || "0",
+    "Hôtel / point de rencontre": val(f, "hotel"), "Message": val(f, "message"),
+  }, bookingStatus, "Merci ! Votre demande de réservation est bien envoyée. Nous vous confirmons la disponibilité très vite par e-mail ou WhatsApp.");
+  if (ok) bookingForm.reset();
+});
+
+document.getElementById("wa-send").addEventListener("click", () => {
+  if (!bookingForm.reportValidity()) return;
+  const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage(new FormData(bookingForm)))}`;
+  const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; a.click();
+});
+
+// Avis clients : seuls les avis validés par Vibe Riviera Maya sont ajoutés ici
+const AVIS = [
+  // { prenom: "Marie", origine: "Montréal", excursion: "Bacalar", note: 5, texte: "…", date: "2026-12" },
+];
+const reviewsList = document.getElementById("reviews-list");
+if (AVIS.length) {
+  document.getElementById("reviews-empty").hidden = true;
+  AVIS.forEach(a => {
+    const el = document.createElement("blockquote");
+    el.className = "review";
+    el.innerHTML = '<p class="r-stars"></p><p class="r-text"></p><footer><strong></strong> <span></span></footer>';
+    el.querySelector(".r-stars").textContent = "★".repeat(a.note) + "☆".repeat(5 - a.note);
+    el.querySelector(".r-stars").setAttribute("aria-label", `${a.note} sur 5`);
+    el.querySelector(".r-text").textContent = a.texte;
+    el.querySelector("strong").textContent = a.prenom + (a.origine ? `, ${a.origine}` : "");
+    el.querySelector("span").textContent = "· " + a.excursion;
+    reviewsList.appendChild(el);
+  });
+}
+const reviewForm = document.getElementById("review-form");
+reviewForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = new FormData(reviewForm);
+  if (val(f, "_honey")) return;
+  const ok = await sendForm({
+    _subject: `Nouvel avis client (${val(f, "note")}/5) : ${val(f, "excursion")}`,
+    _template: "table",
+    "Prénom": val(f, "prenom"), "Ville ou pays": val(f, "origine"), "Excursion": val(f, "excursion"),
+    "Note": `${val(f, "note")} / 5`, "Avis": val(f, "avis"), "E-mail (privé)": val(f, "email"),
+  }, document.getElementById("review-status"), "Merci pour votre avis ! Il sera publié après vérification.");
+  if (ok) reviewForm.reset();
 });
 
 

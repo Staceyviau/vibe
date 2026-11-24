@@ -192,6 +192,7 @@
       <nav class="menu">
         <a href="#excursions">Excursions</a>
         <a href="#tarifs">Tarifs</a>
+        <a href="#avis">Avis</a>
         <a href="#apropos">À propos</a>
         <a href="#contact" class="btn btn-outline">Réserver</a>
       </nav>
@@ -410,12 +411,48 @@
       </div>
     </section>
 
+    <section id="avis" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Avis</p>
+          <h2>Ils sont partis avec nous</h2>
+          <p class="sub">Les avis publiés ici sont ceux de vrais voyageurs, vérifiés avant publication.</p>
+        </div>
+        <div class="reviews" id="reviews-list"></div>
+        <p class="reviews-empty" id="reviews-empty">Les premiers avis de nos voyageurs arrivent bientôt. Vous êtes parti avec nous ? Partagez votre expérience ci-dessous.</p>
+        <details class="review-box" id="laisser-avis">
+          <summary class="btn btn-outline-dark">Laisser un avis</summary>
+          <form class="form review-form" id="review-form">
+            <div class="row">
+              <label>Prénom<input type="text" name="prenom" id="rv-prenom" required autocomplete="given-name"></label>
+              <label>Ville ou pays<input type="text" name="origine" id="rv-origine" placeholder="Montréal, Lyon…"></label>
+            </div>
+            <label>Excursion<input type="text" name="excursion" id="rv-excursion" placeholder="Bacalar, quad, Tulum…" required></label>
+            <fieldset class="stars">
+              <legend>Votre note</legend>
+              <input type="radio" name="note" id="rv-5" value="5" required><label for="rv-5" title="5 étoiles">★</label>
+              <input type="radio" name="note" id="rv-4" value="4"><label for="rv-4" title="4 étoiles">★</label>
+              <input type="radio" name="note" id="rv-3" value="3"><label for="rv-3" title="3 étoiles">★</label>
+              <input type="radio" name="note" id="rv-2" value="2"><label for="rv-2" title="2 étoiles">★</label>
+              <input type="radio" name="note" id="rv-1" value="1"><label for="rv-1" title="1 étoile">★</label>
+            </fieldset>
+            <label>Votre avis<textarea name="avis" id="rv-avis" rows="4" required></textarea></label>
+            <label>E-mail (non publié, facultatif)<input type="email" name="email" id="rv-email" autocomplete="email"></label>
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn btn-dark btn-block">Envoyer mon avis</button>
+            <p class="form-status" id="review-status" role="status" aria-live="polite"></p>
+          </form>
+        </details>
+      </div>
+    </section>
+
     <section id="contact" class="section beige">
       <div class="container contact">
         <div>
           <p class="kicker">Réservation</p>
           <h2>Réservez votre excursion</h2>
-          <p>Remplissez le formulaire : votre demande s'ouvrira directement dans WhatsApp.</p>
+          <p>Remplissez le formulaire : votre demande de réservation nous est envoyée directement. Nous vous confirmons la disponibilité, l'horaire et le prix final par e-mail ou WhatsApp.</p>
+          <p class="small-note">Aucun paiement en ligne : votre place est confirmée après vérification de la disponibilité.</p>
           <ul class="contact-list">
             <li><span>WhatsApp</span><a href="https://wa.me/529841306938" target="_blank" rel="noopener">+52 984 130 6938</a></li>
             <li><span>Base</span>Playa del Carmen, Quintana Roo, Mexique</li>
@@ -423,7 +460,11 @@
           </ul>
         </div>
         <form class="form" id="contact-form">
-          <label>Nom<input type="text" name="nom" required></label>
+          <label>Nom complet<input type="text" name="nom" id="bk-nom" required autocomplete="name"></label>
+          <div class="row">
+            <label>E-mail<input type="email" name="email" id="bk-email" required autocomplete="email"></label>
+            <label>WhatsApp / téléphone<input type="tel" name="telephone" id="bk-tel" autocomplete="tel" placeholder="+1 514…"></label>
+          </div>
           <label>Excursion
             <select name="offre" id="offre">
               <optgroup label="Excursions phares">
@@ -489,12 +530,17 @@
               <option>Autre demande</option>
             </select>
           </label>
-          <div class="row">
-            <label>Date<input type="date" name="date" required></label>
-            <label>Personnes<input type="number" name="personnes" min="1" value="2" required></label>
+          <div class="row row-3">
+            <label>Date<input type="date" name="date" id="bk-date" required></label>
+            <label>Adultes<input type="number" name="adultes" id="bk-adultes" min="1" value="2" required></label>
+            <label>Enfants<input type="number" name="enfants" id="bk-enfants" min="0" value="0"></label>
           </div>
-          <label>Message<textarea name="message" rows="3" placeholder="Hôtel, questions, demandes particulières…"></textarea></label>
-          <button type="submit" class="btn btn-dark btn-block">Envoyer sur WhatsApp</button>
+          <label>Hôtel ou point de rencontre<input type="text" name="hotel" id="bk-hotel" placeholder="Nom de l'hôtel, quartier…"></label>
+          <label>Message<textarea name="message" id="bk-message" rows="3" placeholder="Questions, demandes particulières…"></textarea></label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-dark btn-block">Envoyer ma réservation</button>
+          <button type="button" class="btn btn-wa btn-block" id="wa-send">Ou réserver sur WhatsApp</button>
+          <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
