@@ -34,23 +34,60 @@ if (tourParam) {
   if (opt) select.value = opt.value;
 }
 
-// Réservation en ligne (e-mail via FormSubmit) + option WhatsApp
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/vibe.rivieramaya@gmail.com";
+// Réservation en ligne : envoi par e-mail à vibe.rivieramaya@gmail.com
+// Service principal : Web3Forms si une clé est renseignée, sinon FormSubmit.
+// Si l'envoi échoue ou ne répond pas, le client peut envoyer sa demande par e-mail ou WhatsApp.
+const EMAIL = "vibe.rivieramaya@gmail.com";
+const WEB3FORMS_KEY = ""; // clé d'accès Web3Forms (à coller ici)
 const bookingForm = document.getElementById("contact-form");
 const bookingStatus = document.getElementById("booking-status");
 const val = (f, k) => (f.get(k) || "").toString().trim();
 
+async function postForm(data) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 12000);
+  try {
+    let url, body;
+    if (WEB3FORMS_KEY) {
+      url = "https://api.web3forms.com/submit";
+      const { _subject, _replyto, _template, ...fields } = data;
+      body = { access_key: WEB3FORMS_KEY, subject: _subject, from_name: "Site Vibe Riviera Maya", replyto: _replyto, ...fields };
+    } else {
+      url = `https://formsubmit.co/ajax/${EMAIL}`;
+      body = data;
+    }
+    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body), signal: ctrl.signal });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Erreur");
+    return true;
+  } finally { clearTimeout(timer); }
+}
+
+function fallbackButtons(statusEl, subject, text) {
+  statusEl.className = "form-status err";
+  statusEl.innerHTML = "";
+  const msg = document.createElement("span");
+  msg.textContent = "L'envoi automatique n'a pas fonctionné. Envoyez votre demande en un clic :";
+  const box = document.createElement("span"); box.className = "fallback-btns";
+  const mail = document.createElement("a"); mail.className = "btn btn-dark";
+  mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  mail.textContent = "Envoyer par e-mail";
+  const wa = document.createElement("a"); wa.className = "btn btn-wa"; wa.target = "_blank"; wa.rel = "noopener";
+  wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  wa.textContent = "Envoyer sur WhatsApp";
+  box.append(mail, wa);
+  statusEl.append(msg, box);
+}
+
 async function sendForm(data, statusEl, okMsg) {
   statusEl.className = "form-status"; statusEl.textContent = "Envoi en cours…";
   try {
-    const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
-    const j = await r.json().catch(() => ({}));
-    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Erreur");
+    await postForm(data);
     statusEl.className = "form-status ok"; statusEl.textContent = okMsg;
     return true;
   } catch (e) {
-    statusEl.className = "form-status err";
-    statusEl.textContent = "L'envoi n'a pas fonctionné. Réessayez dans un instant, ou écrivez-nous sur WhatsApp au +52 984 130 6938.";
+    const text = Object.entries(data).filter(([k, v]) => !k.startsWith("_") && v).map(([k, v]) => `${k} : ${v}`).join("\n");
+    fallbackButtons(statusEl, data._subject || "Demande depuis le site", "Bonjour Vibe Riviera Maya !\n\n" + text);
     return false;
   }
 }

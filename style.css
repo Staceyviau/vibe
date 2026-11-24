@@ -350,3 +350,5 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .vbot-head .vbot-avatar { width: 40px; height: 40px; }
 .vbot-open { padding: .4rem 1rem .4rem .4rem; }
 @media (max-width: 560px) { .vbot-open { padding: 0; } .vbot-open .vbot-avatar { width: 54px; height: 54px; } }
+.fallback-btns { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .7rem; }
+.fallback-btns .btn { flex: 1 1 180px; padding: .8rem 1rem; }
