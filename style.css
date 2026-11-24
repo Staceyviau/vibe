@@ -336,3 +336,13 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .pr-name a { color: inherit; border-bottom: 1px solid var(--sand); }
 .pr-name a:hover { border-color: var(--bronze); }
 .xi img { height: auto; }
+
+/* WhatsApp à gauche, assistant à droite */
+.wa-float { right: auto; left: calc(20px + env(safe-area-inset-left, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
+.vbot-open { bottom: calc(20px + env(safe-area-inset-bottom, 0px)); min-height: 58px; }
+.vbot-panel { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); max-height: min(640px, calc(100vh - 120px)); }
+@media (max-width: 560px) {
+  .vbot-panel { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); max-height: calc(100vh - 110px); }
+  .vbot-open { width: 58px; height: 58px; justify-content: center; padding: 0; }
+  .vbot-open svg { width: 36px; height: 36px; }
+}
