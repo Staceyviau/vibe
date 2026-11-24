@@ -27,6 +27,12 @@ const select = document.getElementById("offre");
 document.querySelectorAll("[data-tour]").forEach(el => {
   el.addEventListener("click", () => { select.value = el.dataset.tour; });
 });
+// Lien venant d'une fiche excursion : /?tour=Nom#contact
+const tourParam = new URLSearchParams(location.search).get("tour");
+if (tourParam) {
+  const opt = [...select.options].find(o => o.text === tourParam);
+  if (opt) select.value = opt.value;
+}
 
 // Réservation en ligne (e-mail via FormSubmit) + option WhatsApp
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/vibe.rivieramaya@gmail.com";
