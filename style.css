@@ -160,3 +160,5 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 @media (max-width: 420px) { .logo-rm { font-size: 1.1rem; } .logo-mark { width: 36px; height: 36px; } }
 .logo-exc { font-size: 1.1rem; font-weight: 600; opacity: 1; margin-top: .25rem; }
 @media (max-width: 420px) { .logo-exc { font-size: .95rem; } }
+.logo-exc { font-size: 1.4rem; margin-top: .15rem; }
+@media (max-width: 420px) { .logo-exc { font-size: 1.15rem; } }
