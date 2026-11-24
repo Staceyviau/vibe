@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="50" cy="50" r="46"/>
+  <!-- soleil levant -->
+  <path d="M36 44 A14 14 0 0 1 64 44"/>
+  <path d="M50 24 V19 M36.5 29.5 L33 26 M63.5 29.5 L67 26 M30.5 39 L25.8 37.5 M69.5 39 L74.2 37.5"/>
+  <!-- pyramide maya -->
+  <path d="M24 67 H29 V62 H34 V57 H39 V52 H44 V47 H56 V52 H61 V57 H66 V62 H71 V67 H76"/>
+  <path d="M46.5 47 V42.5 H53.5 V47"/>
+  <path d="M50 47 V67" stroke-width="1.4"/>
+  <!-- vagues -->
+  <path d="M28 74 q5.5 -3.5 11 0 t11 0 t11 0 t11 0"/>
+  <path d="M34 80 q4 -2.6 8 0 t8 0 t8 0 t8 0"/>
+</svg>

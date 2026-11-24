@@ -136,3 +136,12 @@ h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 
 .social { display: inline-flex; align-items: center; gap: .5rem; color: var(--sand); letter-spacing: .12em; text-transform: uppercase; font-size: .75rem; transition: color .2s; }
 .social:hover { color: var(--ivory); }
+
+/* Logo */
+.logo { display: inline-flex; align-items: center; gap: .7rem; line-height: 1; }
+.logo-mark { width: 42px; height: 42px; flex: none; color: var(--bronze); transition: color .3s; }
+.nav:not(.scrolled):not(.open) .logo-mark { color: #f1e2c8; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-vibe { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.75rem; }
+.logo-rm { font-family: var(--sans); font-weight: 400; font-size: .6rem; letter-spacing: .38em; text-transform: uppercase; margin-top: .15rem; }
+.footer .logo-mark { color: var(--sand); }
