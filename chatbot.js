@@ -9,12 +9,12 @@
   root.className = "vbot";
   root.innerHTML = `
     <button class="vbot-open" type="button" aria-expanded="false" aria-controls="vbot-panel">
-      <svg aria-hidden="true"><use href="#emblem"/></svg><span>Une question ?</span>
+      <img class="vbot-avatar" src="images/stacey.jpg" alt="" width="44" height="44"><span>Une question ?</span>
     </button>
     <section class="vbot-panel" id="vbot-panel" role="dialog" aria-label="Assistant Vibe Riviera Maya" hidden>
       <header class="vbot-head">
-        <svg aria-hidden="true"><use href="#emblem"/></svg>
-        <div><strong>Assistant Vibe</strong><small>Réponses instantanées · Stacey prend le relais sur WhatsApp</small></div>
+        <img class="vbot-avatar" src="images/stacey.jpg" alt="Stacey, Vibe Riviera Maya" width="40" height="40">
+        <div><strong>Stacey · Vibe Riviera Maya</strong><small>Assistante virtuelle · réponses instantanées, Stacey prend le relais sur WhatsApp</small></div>
         <button type="button" class="vbot-close" aria-label="Fermer l'assistant">×</button>
       </header>
       <div class="vbot-log" aria-live="polite"></div>
@@ -120,7 +120,7 @@
   // ---- Réponses ----
   function greet() {
     bubble("bot", b => {
-      p(b, "Bonjour ! 👋 Je suis l'assistant de Vibe Riviera Maya.");
+      p(b, "Bonjour ! 👋 Je suis l'assistante virtuelle de Stacey, chez Vibe Riviera Maya.");
       p(b, "Je connais nos 39 excursions, leurs prix du jour, les jours de départ et la réservation. Posez-moi votre question !");
     });
     setChips(["Que me conseillez-vous ?", "Prix de Bacalar", "Tours en quad", "Comment réserver ?", "Transport depuis l'hôtel ?"]);
