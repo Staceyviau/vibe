@@ -34,7 +34,7 @@ if (tourParam) {
   if (opt) select.value = opt.value;
 }
 
-// Réservation : envoi automatique (Web3Forms) vers viberivieramaya@gmail.com ;
+// Formulaires : notification e-mail (FormSubmit, puis Web3Forms) + contact HubSpot ;
 // en cas d'échec, le client peut envoyer sa demande déjà rédigée par e-mail ou WhatsApp.
 const EMAIL = "viberivieramaya@gmail.com";
 const bookingForm = document.getElementById("contact-form");
@@ -54,9 +54,32 @@ async function postJSON(url, body) {
   } catch (e) { return false; } finally { clearTimeout(timer); }
 }
 
-// Envoi automatique via Web3Forms → viberivieramaya@gmail.com
+// Notification à l'équipe : FormSubmit (formulaire activé), puis Web3Forms en secours
+const FORMSUBMIT_ID = "d6d17f4acf1c6b4d9e85cf68df698246"; // identifiant public FormSubmit → viberivieramaya@gmail.com
 async function sendAuto(subject, data, replyto) {
+  if (await postJSON(`https://formsubmit.co/ajax/${FORMSUBMIT_ID}`, { _subject: subject, _template: "table", _captcha: "false", ...(replyto ? { _replyto: replyto } : {}), ...data })) return true;
   return sendWeb3(subject, data, replyto);
+}
+
+// HubSpot : API officielle des formulaires (identifiants publics, aucune clé secrète dans le site).
+// Renseigner HUBSPOT_FORM_GUID une fois le formulaire créé dans HubSpot.
+const HUBSPOT_PORTAL_ID = "52374809";
+const HUBSPOT_FORM_GUID = "";
+async function sendHubSpot(fields, context) {
+  if (!HUBSPOT_FORM_GUID) return null; // pas encore configuré
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const r = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, signal: ctrl.signal,
+      body: JSON.stringify({
+        fields: Object.entries(fields).filter(([, v]) => v !== "" && v != null).map(([name, value]) => ({ objectTypeId: "0-1", name, value: String(value) })),
+        context,
+        legalConsentOptions: { consent: { consentToProcess: true, text: "J'accepte que Vibe Riviera Maya conserve mes informations pour me répondre et me proposer des excursions." } },
+      }),
+    });
+    return r.ok;
+  } catch (e) { return false; } finally { clearTimeout(timer); }
 }
 
 async function sendWeb3(subject, data, replyto) {
@@ -105,31 +128,98 @@ function showFallback(subject, data, statusEl) {
   row.append(mail, wa); statusEl.append(t, row);
 }
 
-function waMessage(f) {
-  return `Bonjour Vibe Riviera Maya ! Je m'appelle ${val(f, "nom")}.\n` +
-    `Je souhaite réserver : ${val(f, "offre")}\n` +
-    `Date : ${val(f, "date")} · Adultes : ${val(f, "adultes")} · Enfants : ${val(f, "enfants") || 0}\n` +
-    (val(f, "hotel") ? `Hôtel : ${val(f, "hotel")}\n` : "") +
-    (val(f, "message") ? `Message : ${val(f, "message")}` : "");
-}
+// ---------- Formulaire de découverte ----------
+const INTERESTS = {
+  catamaran: "Catamarans et sorties en bateau", snorkeling: "Snorkeling et activités nautiques", tortues: "Tortues marines",
+  cenotes: "Cenotes et baignades naturelles", aventure: "Aventure extrême et sensations fortes", quad: "Quad et buggy",
+  culture: "Culture et traditions mexicaines", archeologie: "Pyramides et sites archéologiques", chichen_itza: "Chichén Itzá",
+  tulum: "Tulum et sites mayas", ecotourisme: "Parcs naturels et écotourisme", famille: "Excursions familiales",
+  prive_vip: "Expériences privées et VIP", gastronomie: "Gastronomie et découvertes locales",
+};
+const BUDGETS = { moins_1500: "Moins de 1 500 MXN", "1500_2500": "1 500 à 2 500 MXN", "2500_4000": "2 500 à 4 000 MXN", plus_4000: "Plus de 4 000 MXN" };
+const LANGUES = { francais: "Français", anglais: "Anglais", espagnol: "Espagnol" };
 
-bookingForm.addEventListener("submit", e => {
-  e.preventDefault();
+document.getElementById("picks").addEventListener("change", () => { document.getElementById("picks-error").hidden = true; });
+const kids = document.getElementById("bk-enfants"), agesWrap = document.getElementById("ages-wrap");
+const syncAges = () => { agesWrap.hidden = !(+kids.value > 0); };
+kids.addEventListener("input", syncAges); syncAges();
+
+function readForm() {
   const f = new FormData(bookingForm);
-  if (val(f, "_honey")) return;
-  submitForm(`Nouvelle réservation : ${val(f, "offre")} le ${val(f, "date")}`, {
-    "Nom": val(f, "nom"), "E-mail": val(f, "email"), "WhatsApp / téléphone": val(f, "telephone"),
-    "Excursion": val(f, "offre"), "Date": val(f, "date"), "Adultes": val(f, "adultes"), "Enfants": val(f, "enfants") || "0",
-    "Hôtel / point de rencontre": val(f, "hotel"), "Message": val(f, "message"),
-  }, bookingStatus, `Merci ${val(f, "nom").split(" ")[0]} !`,
-     `Votre demande pour « ${val(f, "offre")} » est bien envoyée. Stacey vous confirme la disponibilité très vite par e-mail ou WhatsApp.`,
-     val(f, "email"), bookingForm, bookingForm.querySelector('button[type="submit"]'));
+  const interets = f.getAll("interets");
+  return {
+    f, interets,
+    prenom: val(f, "prenom"), nom: val(f, "nom"), email: val(f, "email"), tel: val(f, "telephone"),
+    date: val(f, "date"), offre: val(f, "offre"), adultes: val(f, "adultes"), enfants: val(f, "enfants") || "0",
+    ages: +val(f, "enfants") > 0 ? val(f, "ages") : "", budget: val(f, "budget"), langue: val(f, "langue"),
+    hotel: val(f, "hotel"), message: val(f, "message"),
+  };
+}
+function summary(d) {
+  return [
+    `Bonjour Vibe Riviera Maya ! Je m'appelle ${d.prenom} ${d.nom}.`,
+    d.interets.length ? `Ce qui m'intéresse : ${d.interets.map(i => INTERESTS[i]).join(", ")}` : "",
+    d.offre ? `Excursion : ${d.offre}` : "",
+    d.date ? `Date souhaitée : ${d.date}` : "",
+    `Adultes : ${d.adultes} · Enfants : ${d.enfants}${d.ages ? ` (âges : ${d.ages})` : ""}`,
+    d.budget ? `Budget : ${BUDGETS[d.budget]} par personne` : "",
+    d.message ? `Message : ${d.message}` : "",
+  ].filter(Boolean).join("\n");
+}
+function waMessage() { return summary(readForm()); }
+
+bookingForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  const d = readForm();
+  if (val(d.f, "_honey")) return;
+  const pickErr = document.getElementById("picks-error");
+  pickErr.hidden = d.interets.length > 0;
+  if (!d.interets.length) { document.getElementById("picks").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+  if (!bookingForm.reportValidity()) return;
+
+  const button = bookingForm.querySelector('button[type="submit"]');
+  bookingStatus.className = "form-status"; bookingStatus.textContent = "Envoi en cours…";
+  button.disabled = true;
+
+  const subject = `Nouvelle demande : ${d.prenom} ${d.nom} · ${d.interets.length} intérêt(s)${d.date ? " · " + d.date : ""}`;
+  const notif = {
+    "Prénom": d.prenom, "Nom": d.nom, "Courriel": d.email, "WhatsApp": d.tel,
+    "Intérêts": d.interets.map(i => INTERESTS[i]).join(", "),
+    "Excursion précise": d.offre || "Conseillez-moi", "Date souhaitée": d.date,
+    "Adultes": d.adultes, "Enfants": d.enfants, "Âges des enfants": d.ages,
+    "Budget par personne": BUDGETS[d.budget] || "Pas de préférence", "Langue": LANGUES[d.langue],
+    "Hôtel ou quartier": d.hotel, "Commentaires": d.message,
+  };
+  const hub = {
+    firstname: d.prenom, lastname: d.nom, email: d.email, phone: d.tel, message: d.message,
+    vrm_interets: d.interets.join(";"), vrm_excursion_souhaitee: d.offre, vrm_date_souhaitee: d.date,
+    vrm_adultes: d.adultes, vrm_enfants: d.enfants, vrm_ages_enfants: d.ages,
+    vrm_budget: d.budget, vrm_langue_preferee: d.langue, vrm_hotel: d.hotel, vrm_source: "site_formulaire_decouverte",
+  };
+  const ctx = { pageUri: location.href, pageName: document.title };
+  const [mailOk, hubOk] = await Promise.all([sendAuto(subject, notif, d.email), sendHubSpot(hub, ctx)]);
+  button.disabled = false;
+
+  if (mailOk || hubOk) {
+    const text = summary(d);
+    bookingStatus.className = "form-status ok"; bookingStatus.innerHTML = "";
+    const t = document.createElement("p"); t.className = "st-title"; t.textContent = `Merci ${d.prenom} !`;
+    const m = document.createElement("p");
+    m.textContent = "Votre demande est bien reçue. Stacey vous prépare une sélection d'excursions adaptées et vous répond très vite. Pour aller plus vite, écrivez-nous sur WhatsApp :";
+    const row = document.createElement("span"); row.className = "fallback-btns";
+    const wa = document.createElement("a"); wa.className = "btn btn-wa"; wa.target = "_blank"; wa.rel = "noopener";
+    wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`; wa.textContent = "Continuer sur WhatsApp";
+    row.append(wa); bookingStatus.append(t, m, row);
+    bookingForm.reset(); syncAges();
+    bookingStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    showFallback(subject, notif, bookingStatus);
+  }
 });
 
 document.getElementById("wa-send").addEventListener("click", () => {
-  if (!bookingForm.reportValidity()) return;
-  const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage(new FormData(bookingForm)))}`;
-  const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; a.click();
+  const a = document.createElement("a");
+  a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage())}`; a.target = "_blank"; a.rel = "noopener"; a.click();
 });
 
 // Avis clients : seuls les avis validés par Vibe Riviera Maya sont ajoutés ici

@@ -164,7 +164,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=202611241858">
+  <link rel="stylesheet" href="style.css?v=202611261713">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -193,6 +193,7 @@
         <a href="#excursions">Excursions</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#avis">Avis</a>
+        <a href="/blog/">Blog</a>
         <a href="#apropos">À propos</a>
         <a href="#contact" class="btn btn-outline">Réserver</a>
       </nav>
@@ -485,15 +486,38 @@
             <li><span>Facebook</span><a href="https://www.facebook.com/share/1cHVbamGMn/" target="_blank" rel="noopener">Suivez-nous sur Facebook</a></li>
           </ul>
         </div>
-        <form class="form" id="contact-form">
-          <div class="form-title"><h3>Formulaire de réservation</h3><p>Les champs marqués * sont obligatoires.</p></div>
-          <label>Nom complet *<input type="text" name="nom" id="bk-nom" required autocomplete="name"></label>
-          <div class="row">
-            <label>E-mail *<input type="email" name="email" id="bk-email" required autocomplete="email"></label>
-            <label>WhatsApp / téléphone<input type="tel" name="telephone" id="bk-tel" autocomplete="tel" placeholder="+1 514…"></label>
-          </div>
-          <label>Excursion *
-            <select name="offre" id="offre">
+        <form class="form disc-form" id="contact-form" novalidate>
+          <div class="form-title"><h3>Votre excursion idéale</h3><p>Dites-nous ce qui vous fait envie : Stacey vous propose les excursions les plus adaptées. Les champs marqués * sont obligatoires.</p></div>
+
+          <fieldset class="fs">
+            <legend><span class="fs-n">1</span>Quel type d'expérience recherchez-vous ? *</legend>
+            <p class="fs-help">Plusieurs choix possibles.</p>
+            <div class="picks" id="picks">
+              <label class="pick"><input type="checkbox" name="interets" value="catamaran"><span><i aria-hidden="true">⛵</i>Catamarans et sorties en bateau</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="snorkeling"><span><i aria-hidden="true">🤿</i>Snorkeling et activités nautiques</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="tortues"><span><i aria-hidden="true">🐢</i>Tortues marines</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="cenotes"><span><i aria-hidden="true">💎</i>Cenotes et baignades naturelles</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="aventure"><span><i aria-hidden="true">⚡</i>Aventure extrême et sensations fortes</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="quad"><span><i aria-hidden="true">🏍️</i>Quad et buggy</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="culture"><span><i aria-hidden="true">🎉</i>Culture et traditions mexicaines</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="archeologie"><span><i aria-hidden="true">🏛️</i>Pyramides et sites archéologiques</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="chichen_itza"><span><i aria-hidden="true">🔺</i>Chichén Itzá</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="tulum"><span><i aria-hidden="true">🌊</i>Tulum et sites mayas</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="ecotourisme"><span><i aria-hidden="true">🌿</i>Parcs naturels et écotourisme</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="famille"><span><i aria-hidden="true">👨‍👩‍👧</i>Excursions familiales</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="prive_vip"><span><i aria-hidden="true">✨</i>Expériences privées et VIP</span></label>
+              <label class="pick"><input type="checkbox" name="interets" value="gastronomie"><span><i aria-hidden="true">🌮</i>Gastronomie et découvertes locales</span></label>
+            </div>
+            <p class="fs-error" id="picks-error" hidden>Choisissez au moins un type d'expérience.</p>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend><span class="fs-n">2</span>Votre voyage</legend>
+            <div class="row">
+              <label>Date souhaitée<input type="date" name="date" id="bk-date"></label>
+              <label>Excursion précise (facultatif)
+                <select name="offre" id="offre">
+                  <option value="">Je ne sais pas encore, conseillez-moi</option>
               <optgroup label="Excursions phares">
                 <option>El Cielo Cozumel</option>
                 <option>Chichén Itzá</option>
@@ -555,18 +579,53 @@
                 <option>Chichén Itzá Safari</option>
               </optgroup>
               <option>Autre demande</option>
-            </select>
-          </label>
-          <div class="row row-3">
-            <label>Date *<input type="date" name="date" id="bk-date" required></label>
-            <label>Adultes *<input type="number" name="adultes" id="bk-adultes" min="1" value="2" required></label>
-            <label>Enfants<input type="number" name="enfants" id="bk-enfants" min="0" value="0"></label>
-          </div>
-          <label>Hôtel ou point de rencontre<input type="text" name="hotel" id="bk-hotel" placeholder="Nom de l'hôtel, quartier…"></label>
-          <label>Message<textarea name="message" id="bk-message" rows="3" placeholder="Questions, demandes particulières…"></textarea></label>
+            
+                </select>
+              </label>
+            </div>
+            <div class="row row-3">
+              <label>Adultes *<input type="number" name="adultes" id="bk-adultes" min="1" max="50" value="2" required inputmode="numeric"></label>
+              <label>Enfants<input type="number" name="enfants" id="bk-enfants" min="0" max="20" value="0" inputmode="numeric"></label>
+              <label id="ages-wrap" hidden>Âges des enfants<input type="text" name="ages" id="bk-ages" placeholder="ex. 4, 9"></label>
+            </div>
+            <div class="row">
+              <label>Budget approximatif par personne
+                <select name="budget" id="bk-budget">
+                  <option value="">Pas de préférence</option>
+                  <option value="moins_1500">Moins de 1 500 MXN (≈ 85 USD)</option>
+                  <option value="1500_2500">1 500 à 2 500 MXN (≈ 85 à 140 USD)</option>
+                  <option value="2500_4000">2 500 à 4 000 MXN (≈ 140 à 225 USD)</option>
+                  <option value="plus_4000">Plus de 4 000 MXN (≈ 225 USD et plus)</option>
+                </select>
+              </label>
+              <label>Langue préférée
+                <select name="langue" id="bk-langue">
+                  <option value="francais">Français</option>
+                  <option value="anglais">Anglais</option>
+                  <option value="espagnol">Espagnol</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend><span class="fs-n">3</span>Vos coordonnées</legend>
+            <div class="row">
+              <label>Prénom *<input type="text" name="prenom" id="bk-prenom" required autocomplete="given-name"></label>
+              <label>Nom *<input type="text" name="nom" id="bk-nom" required autocomplete="family-name"></label>
+            </div>
+            <div class="row">
+              <label>Courriel *<input type="email" name="email" id="bk-email" required autocomplete="email"></label>
+              <label>Numéro WhatsApp<input type="tel" name="telephone" id="bk-tel" autocomplete="tel" placeholder="+1 514 555 0123"></label>
+            </div>
+            <label>Hôtel ou quartier<input type="text" name="hotel" id="bk-hotel" placeholder="Pour le transport, si vous le connaissez"></label>
+            <label>Commentaires ou demandes particulières<textarea name="message" id="bk-message" rows="3" placeholder="Occasion spéciale, mobilité réduite, régime alimentaire…"></textarea></label>
+          </fieldset>
+
           <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="btn btn-dark btn-block">Envoyer ma demande de réservation</button>
-          <button type="button" class="btn btn-wa btn-block" id="wa-send">Ou réserver sur WhatsApp</button>
+          <label class="consent"><input type="checkbox" name="consent" id="bk-consent" required> J'accepte que Vibe Riviera Maya conserve mes informations pour me répondre et me proposer des excursions. *</label>
+          <button type="submit" class="btn btn-dark btn-block">Recevoir mes suggestions d'excursions</button>
+          <button type="button" class="btn btn-wa btn-block" id="wa-send">Ou écrire directement sur WhatsApp</button>
           <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -585,8 +644,8 @@
     <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg>
   </a>
 
-  <script src="script.js?v=202611241858"></script>
-  <script src="chatbot.js?v=202611241858"></script>
+  <script src="script.js?v=202611261713"></script>
+  <script src="chatbot.js?v=202611261713"></script>
   <!-- Metricool : statistiques de visites -->
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"cdc0f6ff38dfe35e6181c068db9b3a6c"})});</script>
 </body>
