@@ -95,14 +95,14 @@
     bacalar: ["bacalar", "7 couleurs", "sept couleurs"], holbox: ["holbox"], contoy: ["contoy"], mujeres: ["mujeres"],
     chichen: ["chichen", "kukulcan", "merveille"], tulum: ["tulum"], coba: ["coba"], akumal: ["akumal", "tortue", "turtle"],
     yalku: ["yalku"], xcaret: ["xcaret"], quad: ["quad", "atv", "vtt", "moto"], cheval: ["cheval", "chevaux", "horse"],
-    cenote: ["cenote", "senote"], siankaan: ["sian", "kaan"], cozumel: ["cozumel", "cielo", "etoile de mer"], recif: ["recif", "snorkel", "plong"],
+    cenote: ["cenote", "senote"], casatortuga: ["casa tortuga", "tortuga"], siankaan: ["sian", "kaan"], cozumel: ["cozumel", "cielo", "etoile de mer"], recif: ["recif", "snorkel", "plong"],
   };
   function findTours(q) {
     const keys = Object.entries(ALIASES).filter(([, w]) => w.some(x => q.includes(x))).map(([k]) => k);
     if (!keys.length) return [];
     const items = catalog();
     const keyWords = { bacalar: "bacalar", holbox: "holbox", contoy: "contoy", mujeres: "mujeres", chichen: "chichen", tulum: "tulum", coba: "coba",
-      akumal: "akumal", yalku: "yalku", xcaret: "xcaret", quad: "quad", cheval: "cheval", cenote: "cenote", siankaan: "sian", cozumel: "cozumel", recif: "recif" };
+      akumal: "akumal", yalku: "yalku", xcaret: "xcaret", quad: "quad", cheval: "cheval", cenote: "cenote", casatortuga: "casa tortuga", siankaan: "sian", cozumel: "cozumel", recif: "recif" };
     // excursions qui contiennent TOUS les mots demandés, sinon au moins un
     const by = field => i => keys.filter(k => norm(field(i)).includes(keyWords[k])).length;
     for (const score of [by(i => i.name), by(i => i.name + " " + (i.note || ""))]) {
