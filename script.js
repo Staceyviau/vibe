@@ -24,15 +24,18 @@ menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
 
 // Liens "Réserver" : présélectionne l'excursion dans le formulaire
 const select = document.getElementById("offre");
-document.querySelectorAll("[data-tour]").forEach(el => {
-  el.addEventListener("click", () => { select.value = el.dataset.tour; });
+const normTour = t => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+function pickTour(name) {
+  if (!name) return;
+  let opt = [...select.options].find(o => normTour(o.text) === normTour(name));
+  if (!opt) { opt = new Option(name, name); select.add(opt); }
+  select.value = opt.value;
+}
+document.querySelectorAll("a.link[data-tour], button[data-tour]").forEach(el => {
+  el.addEventListener("click", () => pickTour(el.dataset.tour));
 });
 // Lien venant d'une fiche excursion : /?tour=Nom#contact
-const tourParam = new URLSearchParams(location.search).get("tour");
-if (tourParam) {
-  const opt = [...select.options].find(o => o.text === tourParam);
-  if (opt) select.value = opt.value;
-}
+pickTour(new URLSearchParams(location.search).get("tour"));
 
 // Formulaires : notification e-mail (FormSubmit, puis Web3Forms) + contact HubSpot ;
 // en cas d'échec, le client peut envoyer sa demande déjà rédigée par e-mail ou WhatsApp.
@@ -308,3 +311,10 @@ async function loadRates() {
   }
 }
 loadRates();
+
+// Catalogue : filtres par catégorie
+document.querySelectorAll(".chip[data-cat]").forEach(chip => chip.addEventListener("click", () => {
+  document.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", c === chip));
+  const cat = chip.dataset.cat;
+  document.querySelectorAll(".xc").forEach(x => { x.hidden = cat !== "all" && x.dataset.cat !== cat; });
+}));

@@ -57,7 +57,7 @@
   }
   function goto(sel, tour) {
     setOpen(false);
-    if (tour) { const s = document.getElementById("offre"); const o = [...s.options].find(o => o.text === tour); if (o) s.value = o.value; }
+    if (tour && typeof pickTour === "function") pickTour(tour);
     const t = document.querySelector(sel); if (t) { if (t.tagName === "DETAILS") t.open = true; t.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
   function waLink(text) {
@@ -68,20 +68,12 @@
   // ---- Connaissances lues sur la page (prix à jour) ----
   function catalog() {
     const items = [];
-    document.querySelectorAll(".day-trip").forEach(d => items.push({
-      name: d.querySelector("h3").textContent.trim(), note: d.querySelector(".dt-days")?.textContent.trim() || "",
-      prices: [...d.querySelectorAll(".price")].map(priceText), anchor: "#tarifs", tour: d.querySelector("[data-tour]")?.dataset.tour,
-      incl: [...d.querySelectorAll("details li")].map(li => li.textContent.trim()), policy: d.querySelector(".policy")?.textContent.trim() || "",
+    document.querySelectorAll(".xc").forEach(c => items.push({
+      name: c.querySelector(".xc-name").textContent.trim(),
+      note: [c.querySelector(".xc-sub")?.textContent.trim(), c.dataset.dur ? "Durée : " + c.dataset.dur : "", c.dataset.days || "", c.dataset.tax || ""].filter(Boolean).join(" · "),
+      prices: [...c.querySelectorAll(".xc-prices .price:not(.na)")].map(priceText), anchor: "#excursions", tour: c.dataset.tour, url: c.getAttribute("href"),
+      incl: (c.dataset.incl || "").split("|").filter(Boolean), policy: c.dataset.policy || "",
     }));
-    document.querySelectorAll(".pr-cat").forEach(cat => cat.querySelectorAll(".pr-row").forEach(r => items.push({
-      name: r.querySelector("strong").textContent.trim(), note: r.querySelector("small")?.textContent.trim() || "",
-      cat: cat.querySelector("summary span").textContent.trim(), catNote: cat.querySelector("summary small").textContent.trim(),
-      prices: [...r.querySelectorAll(".price")].map(priceText), anchor: "#" + cat.id, tour: r.querySelector("strong").textContent.trim(),
-    })));
-    document.querySelectorAll(".tour").forEach(t => {
-      const name = t.querySelector("h3").textContent.trim();
-      if (!items.some(i => norm(i.name) === norm(name))) items.push({ name, note: t.querySelector("p").textContent.trim(), prices: [], anchor: "#excursions", tour: t.querySelector("[data-tour]")?.dataset.tour });
-    });
     return items;
   }
   function priceText(el) {
@@ -121,7 +113,7 @@
   function greet() {
     bubble("bot", b => {
       p(b, "Bonjour ! 👋 Je suis l'assistante virtuelle de Stacey, chez Vibe Riviera Maya.");
-      p(b, "Je connais nos 39 excursions, leurs prix du jour, les jours de départ et la réservation. Posez-moi votre question !");
+      p(b, "Je connais nos 44 excursions, leurs prix du jour, les jours de départ et la réservation. Posez-moi votre question !");
     });
     setChips(["Que me conseillez-vous ?", "Prix de Bacalar", "Tours en quad", "Comment réserver ?", "Transport depuis l'hôtel ?"]);
   }
@@ -141,6 +133,7 @@
         if (t.catNote && /taxe/i.test(t.catNote) && !/aucune/i.test(t.catNote) && !/taxe/i.test(t.note)) p(card, t.catNote.split("·").pop().trim());
         if (t.incl && t.incl.length && (wantsIncl || list.length === 1)) { const ul = document.createElement("ul"); t.incl.forEach(i => { const li = document.createElement("li"); li.textContent = i; ul.appendChild(li); }); card.appendChild(ul); }
         if (t.policy && list.length === 1) p(card, t.policy);
+        if (t.url) action(card, "Voir la fiche", () => { location.href = t.url; });
         action(card, "Réserver", () => goto("#contact", t.tour || t.name));
       });
       if (list.length > 4) action(b, "Voir toutes les excursions", () => goto(shown[0].anchor));

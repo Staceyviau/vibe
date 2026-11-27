@@ -164,7 +164,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=202611261732">
+  <link rel="stylesheet" href="style.css?v=202611262030">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -191,7 +191,6 @@
       <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
       <nav class="menu">
         <a href="#excursions">Excursions</a>
-        <a href="#tarifs">Tarifs</a>
         <a href="#avis">Avis</a>
         <a href="/blog/">Blog</a>
         <a href="#apropos">À propos</a>
@@ -222,194 +221,505 @@
       </div>
     </section>
 
+    <!-- CATALOGUE:debut (généré par outils/fiches.py) -->
     <section id="excursions" class="section">
+      <span id="tarifs" class="anchor"></span>
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Collection</p>
-          <h2>Nos excursions</h2>
-          <p class="sub">Toutes nos excursions partent de Playa del Carmen. Tarifs et disponibilités sur demande, réponse rapide sur WhatsApp.</p>
+          <p class="kicker">Toutes nos excursions</p>
+          <h2>Choisissez votre aventure</h2>
+          <p class="sub">Toutes nos excursions partent de Playa del Carmen et de la Riviera Maya. Prix en pesos mexicains, par personne. Touchez une excursion pour voir sa fiche complète : durée, programme et réservation.</p>
         </div>
-        <div class="tours">
-          <article class="tour">
-            <div class="tour-img"><img src="images/cozumel.jpg" alt="Tortue marine lors du snorkeling à Cozumel" width="1200" height="750" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/el-cielo-cozumel/">El Cielo, Cozumel</a></h3>
-              <p>Un coin de paradis aux eaux cristallines : snorkeling parmi les étoiles de mer, les coraux et les tortues.</p>
-              <a class="link" data-tour="El Cielo Cozumel" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/chichen-itza.jpg" alt="Pyramide de Kukulcán à Chichén Itzá" width="1200" height="803" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/chichen-itza-sunrise/">Chichén Itzá</a></h3>
-              <p>Découvrez la cité maya inscrite parmi les sept nouvelles merveilles du monde et sa célèbre pyramide de Kukulcán.</p>
-              <a class="link" data-tour="Chichén Itzá" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/coba/pyramide.jpg" alt="Pyramide Nohoch Mul à Cobá" width="960" height="1280" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/tulum-coba-village-maya-cenote/">Tulum &amp; Cobá</a></h3>
-              <p>Deux sites mayas incontournables : Tulum face à la mer des Caraïbes et Cobá au cœur de la jungle.</p>
-              <a class="link" data-tour="Tulum & Cobá" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/bacalar.jpg" alt="Lagune aux sept couleurs de Bacalar vue du ciel" width="364" height="364" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/bacalar/">Bacalar</a></h3>
-              <p>La lagune aux sept couleurs, des eaux turquoise à perte de vue pour une journée inoubliable.</p>
-              <a class="link" data-tour="Bacalar" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/sian-kaan.jpg" alt="Réserve de Sian Ka'an vue du ciel" width="364" height="364" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/sian-ka-an/">Sian Ka'an</a></h3>
-              <p>Une réserve naturelle préservée, classée au patrimoine mondial de l'UNESCO, entre lagunes, mangroves et plages sauvages.</p>
-              <a class="link" data-tour="Sian Ka'an" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/isla-mujeres.jpg" alt="Panneau Isla Mujeres au bord de la mer turquoise" width="364" height="364" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/isla-mujeres-en-catamaran/">Isla Mujeres en catamaran</a></h3>
-              <p>Navigation en catamaran, baignade et snorkeling dans les eaux turquoise d'Isla Mujeres.</p>
-              <a class="link" data-tour="Isla Mujeres catamaran" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/xcaret.jpg" alt="Pélican sur le rocher Xcaret México devant une cascade" width="800" height="1200" decoding="async" loading="lazy" style="object-position: center 22%"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/parc-xcaret/">Parc Xcaret</a></h3>
-              <p>Le célèbre parc éco-archéologique à quelques minutes de Playa del Carmen : rivières souterraines, plages, faune locale et grand spectacle du soir.</p>
-              <a class="link" data-tour="Xcaret" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/casa-tortuga/04.jpg" alt="Cénote turquoise de Casa Tortuga" width="1170" height="1023" decoding="async" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/casa-tortuga/">Casa Tortuga</a></h3>
-              <p>Le parc des cénotes près de Tulum : bassins turquoise à ciel ouvert, grottes souterraines et baignade dans une eau cristalline.</p>
-              <a class="link" data-tour="Casa Tortuga" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
-          <article class="tour">
-            <div class="tour-img"><img src="images/quad/jungle.jpg" alt="Quads sur une piste dans la jungle" loading="lazy"></div>
-            <div class="tour-body">
-              <h3><a href="/excursions/quad-grotte/">Tour en ATV (quad)</a></h3>
-              <p>Une aventure en quad à travers la jungle de la Riviera Maya : pistes de terre, sensations fortes et nature sauvage.</p>
-              <a class="link" data-tour="ATV (quad)" href="#contact">Réserver <span>→</span></a>
-            </div>
-          </article>
+        <div class="chips" role="group" aria-label="Filtrer les excursions"><button class="chip on" data-cat="all">Toutes</button><button class="chip" data-cat="maya">Sites mayas</button><button class="chip" data-cat="cenote">Cénotes</button><button class="chip" data-cat="mer">Snorkeling &amp; tortues</button><button class="chip" data-cat="quad">Quad &amp; aventure</button><button class="chip" data-cat="iles">Îles &amp; lagunes</button><button class="chip" data-cat="parc">Parcs</button></div>
+        <div class="xcs">
+          <a class="xc" href="/excursions/chichen-itza-sunrise/" data-cat="maya" data-tour="Chichén Itzá Sunrise" data-dur="Environ 12 h" data-days="Mardi, jeudi et samedi" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/chichen-itza.jpg" alt="Chichén Itzá Sunrise" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Chichén Itzá Sunrise</span>
+              <span class="xc-sub">Chichén Itzá au lever du jour</span>
+              <span class="xc-meta"><span>⏱ Environ 12 h</span><span class="xc-price"><span class="price" data-usd="74"><em>dès</em> <b class="mxn">2 000 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/chichen-itza-safari/" data-cat="maya" data-tour="Chichén Itzá Safari" data-dur="Environ 12 h" data-days="Mardi, jeudi et samedi" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/chichen-itza.jpg" alt="Chichén Itzá Safari" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Chichén Itzá Safari</span>
+              <span class="xc-sub">Chichén Itzá en mode safari</span>
+              <span class="xc-meta"><span>⏱ Environ 12 h</span><span class="xc-price"><span class="price" data-usd="74"><em>dès</em> <b class="mxn">2 000 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-discovery/" data-cat="maya" data-tour="Cobá Discovery" data-dur="Environ 6 h" data-days="Tous les jours · 2ᵉ horaire uniquement" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/pyramide.jpg" alt="Cobá Discovery" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Cobá Discovery</span>
+              <span class="xc-sub">Visite de Cobá</span>
+              <span class="xc-meta"><span>⏱ Environ 6 h</span><span class="xc-price"><span class="price" data-usd="50"><em>dès</em> <b class="mxn">1 560 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-safari/" data-cat="maya" data-tour="Cobá Safari" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/pyramide.jpg" alt="Cobá Safari" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Cobá Safari</span>
+              <span class="xc-sub">Le site maya de Cobá en mode safari</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="74"><em>dès</em> <b class="mxn">2 000 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-village-maya-cenote/" data-cat="maya" data-tour="Cobá · village maya · cénote" data-dur="Environ 8 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/cenote-grotte-2.jpg" alt="Cobá · village maya · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Cobá · village maya · cénote</span>
+              <span class="xc-sub">Culture maya et baignade en cénote</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="60"><em>dès</em> <b class="mxn">1 740 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-village-maya-cenote-lagune/" data-cat="maya" data-tour="Cobá · village maya · cénote · lagune" data-dur="Environ 9 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/cenote-grotte-1.jpg" alt="Cobá · village maya · cénote · lagune" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Cobá · village maya · cénote · lagune</span>
+              <span class="xc-sub">Culture maya et baignades</span>
+              <span class="xc-meta"><span>⏱ Environ 9 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-discovery/" data-cat="maya" data-tour="Tulum Discovery" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/tulum-ruines.jpg" alt="Tulum Discovery" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum Discovery</span>
+              <span class="xc-sub">Visite du site archéologique de Tulum</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="40"><em>dès</em> <b class="mxn">1 380 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="40"><em>Adulte</em><b class="mxn">1 380 MXN</b></span><span class="price" data-usd="40"><em>Enfant</em><b class="mxn">1 380 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-sunset/" data-cat="maya" data-tour="Tulum Sunset" data-dur="Environ 5 h" data-days="Tous les jours · 2ᵉ horaire uniquement" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum Sunset" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum Sunset</span>
+              <span class="xc-sub">Tulum au coucher du soleil</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="50"><em>dès</em> <b class="mxn">1 560 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-reserve-du-jaguar/" data-cat="maya" data-tour="Tulum &amp; réserve du Jaguar" data-dur="Environ 6 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum &amp; réserve du Jaguar" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum &amp; réserve du Jaguar</span>
+              <span class="xc-sub">Tulum et le parc du Jaguar</span>
+              <span class="xc-meta"><span>⏱ Environ 6 h</span><span class="xc-price"><span class="price" data-usd="40"><em>dès</em> <b class="mxn">1 380 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="40"><em>Adulte</em><b class="mxn">1 380 MXN</b></span><span class="price" data-usd="40"><em>Enfant</em><b class="mxn">1 380 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-cenote-playa-paraiso/" data-cat="maya" data-tour="Tulum · cénote · Playa Paraíso" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum · cénote · Playa Paraíso" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · cénote · Playa Paraíso</span>
+              <span class="xc-sub">Ruines, baignade en cénote et plage</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="50"><em>dès</em> <b class="mxn">1 560 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-aventuras/" data-cat="maya" data-tour="Tulum Aventuras" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum Aventuras" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum Aventuras</span>
+              <span class="xc-sub">Tulum et activités d&#x27;aventure</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="60"><em>dès</em> <b class="mxn">1 740 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-cenotes-mayas/" data-cat="maya" data-tour="Tulum &amp; cénotes mayas" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum &amp; cénotes mayas" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum &amp; cénotes mayas</span>
+              <span class="xc-sub">Ruines et baignade en cénotes</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="60"><em>dès</em> <b class="mxn">1 740 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-cenote-grotte-recif/" data-cat="maya" data-tour="Tulum · cénote-grotte · récif" data-dur="Environ 8 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum · cénote-grotte · récif" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · cénote-grotte · récif</span>
+              <span class="xc-sub">Ruines, cénote souterrain et snorkeling</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="60"><em>dès</em> <b class="mxn">1 740 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-cenote-grotte-akumal/" data-cat="maya" data-tour="Tulum · cénote-grotte · Akumal" data-dur="Environ 8 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum · cénote-grotte · Akumal" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · cénote-grotte · Akumal</span>
+              <span class="xc-sub">Ruines, cénote souterrain et tortues d&#x27;Akumal</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="55"><em>Enfant</em><b class="mxn">1 650 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-cenote-grotte-yalku/" data-cat="maya" data-tour="Tulum · cénote-grotte · Yalkú" data-dur="Environ 8 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum · cénote-grotte · Yalkú" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · cénote-grotte · Yalkú</span>
+              <span class="xc-sub">Ruines, cénote souterrain et lagune de Yalkú</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-balade-a-cheval-cenote/" data-cat="maya" data-tour="Tulum · balade à cheval · cénote" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/tulum-coba.jpg" alt="Tulum · balade à cheval · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · balade à cheval · cénote</span>
+              <span class="xc-sub">Ruines, cheval et baignade en cénote</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-coba-village-maya-cenote/" data-cat="maya" data-tour="Tulum · Cobá · village maya · cénote" data-dur="Environ 10 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/tulum-ruines.jpg" alt="Tulum · Cobá · village maya · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Sites mayas</span>
+              <span class="xc-name">Tulum · Cobá · village maya · cénote</span>
+              <span class="xc-sub">Deux sites mayas et une communauté locale</span>
+              <span class="xc-meta"><span>⏱ Environ 10 h</span><span class="xc-price"><span class="price" data-usd="68"><em>dès</em> <b class="mxn">1 890 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="68"><em>Adulte</em><b class="mxn">1 890 MXN</b></span><span class="price" data-usd="58"><em>Enfant</em><b class="mxn">1 710 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/casa-tortuga/" data-cat="cenote" data-tour="Casa Tortuga" data-dur="Environ 5 h" data-days="Sur demande" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/casa-tortuga/04.jpg" alt="Casa Tortuga" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Cénotes</span>
+              <span class="xc-name">Casa Tortuga</span>
+              <span class="xc-sub">Le parc des cénotes près de Tulum</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/cenotes/" data-cat="cenote" data-tour="Cénotes" data-dur="Environ 4 h" data-days="Tous les jours · 2 horaires" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/cenote-grotte-1.jpg" alt="Cénotes" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Cénotes</span>
+              <span class="xc-name">Cénotes</span>
+              <span class="xc-sub">Baignade en cénotes</span>
+              <span class="xc-meta"><span>⏱ Environ 4 h</span><span class="xc-price"><span class="price" data-usd="43"><em>dès</em> <b class="mxn">1 440 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="43"><em>Adulte</em><b class="mxn">1 440 MXN</b></span><span class="price" data-usd="33"><em>Enfant</em><b class="mxn">1 260 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/cenotes-safari/" data-cat="cenote" data-tour="Cénotes Safari" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/cenote-grotte-2.jpg" alt="Cénotes Safari" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Cénotes</span>
+              <span class="xc-name">Cénotes Safari</span>
+              <span class="xc-sub">Circuit des cénotes</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="65"><em>dès</em> <b class="mxn">1 830 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="65"><em>Adulte</em><b class="mxn">1 830 MXN</b></span><span class="price" data-usd="55"><em>Enfant</em><b class="mxn">1 650 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/akumal-express/" data-cat="mer" data-tour="Akumal Express" data-dur="Environ 4 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Akumal Express" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Akumal Express</span>
+              <span class="xc-sub">Snorkeling avec les tortues d&#x27;Akumal</span>
+              <span class="xc-meta"><span>⏱ Environ 4 h</span><span class="xc-price"><span class="price" data-usd="53"><em>dès</em> <b class="mxn">1 620 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/akumal-adrenaline/" data-cat="mer" data-tour="Akumal Adrenaline" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Akumal Adrenaline" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Akumal Adrenaline</span>
+              <span class="xc-sub">Snorkeling avec les tortues d&#x27;Akumal</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="73"><em>dès</em> <b class="mxn">1 980 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="73"><em>Adulte (en duo)</em><b class="mxn">1 980 MXN</b></span><span class="price" data-usd="63"><em>Enfant (en duo)</em><b class="mxn">1 800 MXN</b></span><span class="price" data-usd="83"><em>Adulte (seul)</em><b class="mxn">2 160 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/akumal-2-cenotes/" data-cat="mer" data-tour="Akumal &amp; 2 cénotes" data-dur="Environ 6 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Akumal &amp; 2 cénotes" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Akumal &amp; 2 cénotes</span>
+              <span class="xc-sub">Tortues d&#x27;Akumal et deux cénotes</span>
+              <span class="xc-meta"><span>⏱ Environ 6 h</span><span class="xc-price"><span class="price" data-usd="53"><em>dès</em> <b class="mxn">1 620 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/akumal-balade-a-cheval-cenote/" data-cat="mer" data-tour="Akumal · balade à cheval · cénote" data-dur="Environ 6 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Akumal · balade à cheval · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Akumal · balade à cheval · cénote</span>
+              <span class="xc-sub">Tortues d&#x27;Akumal, cheval et cénote</span>
+              <span class="xc-meta"><span>⏱ Environ 6 h</span><span class="xc-price"><span class="price" data-usd="63"><em>dès</em> <b class="mxn">1 800 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="63"><em>Adulte</em><b class="mxn">1 800 MXN</b></span><span class="price" data-usd="53"><em>Enfant</em><b class="mxn">1 620 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-akumal-cenote/" data-cat="mer" data-tour="Cobá · Akumal · cénote" data-dur="Environ 9 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/cenote-grotte-2.jpg" alt="Cobá · Akumal · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Cobá · Akumal · cénote</span>
+              <span class="xc-sub">Site maya, tortues et cénote</span>
+              <span class="xc-meta"><span>⏱ Environ 9 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-recifs/" data-cat="mer" data-tour="Cobá &amp; récifs" data-dur="Environ 8 h" data-days="Tous les jours" data-tax="Taxe récif (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/pyramide.jpg" alt="Cobá &amp; récifs" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Cobá &amp; récifs</span>
+              <span class="xc-sub">Site maya de Cobá et snorkeling sur les récifs</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="60"><em>dès</em> <b class="mxn">1 740 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/yalku-extreme/" data-cat="mer" data-tour="Yalkú Extreme" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Yalkú Extreme" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Yalkú Extreme</span>
+              <span class="xc-sub">Snorkeling dans la lagune de Yalkú</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="56"><em>dès</em> <b class="mxn">1 670 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="56"><em>Adulte (en duo)</em><b class="mxn">1 670 MXN</b></span><span class="price" data-usd="46"><em>Enfant (en duo)</em><b class="mxn">1 490 MXN</b></span><span class="price" data-usd="63"><em>Adulte (seul)</em><b class="mxn">1 800 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/yalku-lagune-cenote/" data-cat="mer" data-tour="Yalkú · lagune · cénote" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="Taxe Akumal / Yalkú (10 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Yalkú · lagune · cénote" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Yalkú · lagune · cénote</span>
+              <span class="xc-sub">Lagune de Yalkú et baignade en cénote</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="53"><em>dès</em> <b class="mxn">1 620 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/snorkel-maya-laguna/" data-cat="mer" data-tour="Snorkel Maya Laguna" data-dur="Environ 4 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Snorkel Maya Laguna" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Snorkel Maya Laguna</span>
+              <span class="xc-sub">Snorkeling en lagune</span>
+              <span class="xc-meta"><span>⏱ Environ 4 h</span><span class="xc-price"><span class="price" data-usd="53"><em>dès</em> <b class="mxn">1 620 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/recifs-adrenaline/" data-cat="mer" data-tour="Récifs Adrenaline" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="Taxe récif (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="Récifs Adrenaline" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Snorkeling &amp; tortues</span>
+              <span class="xc-name">Récifs Adrenaline</span>
+              <span class="xc-sub">Snorkeling sur les récifs</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="67"><em>dès</em> <b class="mxn">1 870 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/quad-grotte/" data-cat="quad" data-tour="Quad &amp; grotte" data-dur="Environ 3 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Quad &amp; grotte" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Quad &amp; grotte</span>
+              <span class="xc-sub">Pistes dans la jungle et visite d&#x27;une grotte</span>
+              <span class="xc-meta"><span>⏱ Environ 3 h</span><span class="xc-price"><span class="price" data-usd="80"><em>dès</em> <b class="mxn">2 100 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="80"><em>Quad pour 2</em><b class="mxn">2 100 MXN</b></span><span class="price" data-usd="56"><em>Quad pour 1</em><b class="mxn">1 670 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/quad-aventure-maya/" data-cat="quad" data-tour="Quad Aventure Maya" data-dur="Environ 3 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Quad Aventure Maya" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Quad Aventure Maya</span>
+              <span class="xc-sub">Parcours en quad dans la jungle maya</span>
+              <span class="xc-meta"><span>⏱ Environ 3 h</span><span class="xc-price"><span class="price" data-usd="80"><em>dès</em> <b class="mxn">2 100 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="80"><em>Quad pour 2</em><b class="mxn">2 100 MXN</b></span><span class="price" data-usd="56"><em>Quad pour 1</em><b class="mxn">1 670 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/full-day/" data-cat="quad" data-tour="Full Day" data-dur="Environ 8 h" data-days="Tous les jours · 2 horaires" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Full Day" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Full Day</span>
+              <span class="xc-sub">Journée complète d&#x27;aventure</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte (en duo)</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant (en duo)</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="70"><em>Adulte (seul)</em><b class="mxn">1 920 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/mayan-safari/" data-cat="quad" data-tour="Mayan Safari" data-dur="Environ 5 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Mayan Safari" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Mayan Safari</span>
+              <span class="xc-sub">Safari dans la jungle maya</span>
+              <span class="xc-meta"><span>⏱ Environ 5 h</span><span class="xc-price"><span class="price" data-usd="70"><em>dès</em> <b class="mxn">1 920 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte (en duo)</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant (en duo)</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="70"><em>Adulte (seul)</em><b class="mxn">1 920 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/coba-adrenaline/" data-cat="quad" data-tour="Cobá Adrenaline" data-dur="Environ 7 h" data-days="Tous les jours" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/coba/pyramide.jpg" alt="Cobá Adrenaline" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Cobá Adrenaline</span>
+              <span class="xc-sub">Quad et site maya de Cobá</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><span class="price" data-usd="67"><em>dès</em> <b class="mxn">1 870 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/tulum-adrenaline/" data-cat="quad" data-tour="Tulum Adrenaline" data-dur="Environ 6 h" data-days="Tous les jours" data-tax="Taxe d&#x27;entrée de Tulum (25 USD) non incluse" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Tulum Adrenaline" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Tulum Adrenaline</span>
+              <span class="xc-sub">Quad et site maya de Tulum</span>
+              <span class="xc-meta"><span>⏱ Environ 6 h</span><span class="xc-price"><span class="price" data-usd="67"><em>dès</em> <b class="mxn">1 870 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/balade-a-cheval-maya/" data-cat="quad" data-tour="Balade à cheval maya" data-dur="Environ 3 h" data-days="Tous les jours · 2 horaires" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/quad/jungle.jpg" alt="Balade à cheval maya" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Quad &amp; aventure</span>
+              <span class="xc-name">Balade à cheval maya</span>
+              <span class="xc-sub">Balade à cheval dans la jungle</span>
+              <span class="xc-meta"><span>⏱ Environ 3 h</span><span class="xc-price"><span class="price" data-usd="54"><em>dès</em> <b class="mxn">1 640 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-usd="54"><em>Adulte</em><b class="mxn">1 640 MXN</b></span><span class="price" data-usd="54"><em>Enfant</em><b class="mxn">1 640 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/el-cielo-cozumel/" data-cat="iles" data-tour="El Cielo, Cozumel" data-dur="Environ 7 h" data-days="Sur demande" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/cozumel.jpg" alt="El Cielo, Cozumel" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">El Cielo, Cozumel</span>
+              <span class="xc-sub">Le paradis des étoiles de mer</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/bacalar/" data-cat="iles" data-tour="Bacalar" data-dur="Journée complète (environ 14 h)" data-days="Du jeudi au mardi (pas d&#x27;excursion le mercredi)" data-tax="" data-incl="Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre|Café de courtoisie et petit-déjeuner à la carte|Guide|Tour de la lagune en ponton (2 h) avec capitaine, gilets et eau|Cenote de la Bruja, Cenote Esmeralda, île aux Oiseaux, canal des Pirates|Deux arrêts baignade|Repas au choix (poisson, crevettes, pâtes, poulet, fajitas…)|Temps libre, fort San Felipe et lettres de Bacalar" data-policy="">
+            <span class="xc-img"><img src="/images/bacalar.jpg" alt="Bacalar" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">Bacalar</span>
+              <span class="xc-sub">La lagune aux sept couleurs</span>
+              <span class="xc-meta"><span>⏱ Journée complète (environ 14 h)</span><span class="xc-price"><span class="price" data-mxn="1600"><em>dès</em> <b class="mxn">2 260 MXN</b></span></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price" data-mxn="1600"><em>Adulte</em><b class="mxn">2 260 MXN</b></span><span class="price" data-mxn="1450"><em>Enfant</em><b class="mxn">2 110 MXN</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/holbox-deluxe/" data-cat="iles" data-tour="Holbox Deluxe" data-dur="Journée complète (environ 14 h)" data-days="Tous les jours (départ de Tulum : lundi, mercredi, vendredi)" data-tax="" data-incl="Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre|Pause café (café, fruits, pain)|Guide bilingue|Bateau depuis Chiquilá : Isla Pasión, Punta Mosquito, île de Holbox|Eau et boissons fraîches|Repas à la carte (poulet, poisson ou bœuf) avec 1 boisson|2 h de temps libre et visite de Yalahau" data-policy="Absence le jour du tour : 20 USD par personne. Départ de Tulum : acompte de 50 % non remboursable.">
+            <span class="xc-img"><img src="/images/holbox/lettres.jpg" alt="Holbox Deluxe" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">Holbox Deluxe</span>
+              <span class="xc-sub">L&#x27;île aux eaux turquoise</span>
+              <span class="xc-meta"><span>⏱ Journée complète (environ 14 h)</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/isla-contoy-isla-mujeres/" data-cat="iles" data-tour="Isla Contoy &amp; Isla Mujeres" data-dur="Environ 7 h" data-days="Lundi, mercredi et vendredi · environ 7 h" data-tax="" data-incl="Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre|Petit-déjeuner léger|Bateau depuis Punta Sam et snorkeling sur les récifs de Contoy (équipement inclus)|Sentiers de l&#x27;île Contoy (2 à 3 h sur place)|Guide bilingue|Bières, sodas, eau et repas buffet|1 h de visite du centre d&#x27;Isla Mujeres" data-policy="Absence le jour du tour : le prix total est facturé.">
+            <span class="xc-img"><img src="/images/isla-mujeres.jpg" alt="Isla Contoy &amp; Isla Mujeres" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">Isla Contoy &amp; Isla Mujeres</span>
+              <span class="xc-sub">Réserve naturelle et île des Femmes</span>
+              <span class="xc-meta"><span>⏱ Environ 7 h</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/isla-mujeres-en-catamaran/" data-cat="iles" data-tour="Isla Mujeres en catamaran" data-dur="Environ 8 h" data-days="Sur demande" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/isla-mujeres.jpg" alt="Isla Mujeres en catamaran" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">Isla Mujeres en catamaran</span>
+              <span class="xc-sub">Voile, baignade et snorkeling</span>
+              <span class="xc-meta"><span>⏱ Environ 8 h</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/sian-ka-an/" data-cat="iles" data-tour="Sian Ka&#x27;an" data-dur="Environ 10 h" data-days="Sur demande" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/sian-kaan.jpg" alt="Sian Ka&#x27;an" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Îles &amp; lagunes</span>
+              <span class="xc-name">Sian Ka&#x27;an</span>
+              <span class="xc-sub">Là où naît le ciel</span>
+              <span class="xc-meta"><span>⏱ Environ 10 h</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
+          <a class="xc" href="/excursions/parc-xcaret/" data-cat="parc" data-tour="Parc Xcaret" data-dur="Journée complète" data-days="Sur demande" data-tax="" data-incl="" data-policy="">
+            <span class="xc-img"><img src="/images/xcaret.jpg" alt="Parc Xcaret" loading="lazy" decoding="async"></span>
+            <span class="xc-body">
+              <span class="xc-cat">Parcs</span>
+              <span class="xc-name">Parc Xcaret</span>
+              <span class="xc-sub">Un monde à part</span>
+              <span class="xc-meta"><span>⏱ Journée complète</span><span class="xc-price"><b>Prix sur demande</b></span></span>
+              <span class="xc-go">Voir la fiche →</span>
+              <span class="xc-prices" hidden><div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div></span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
-
-    <section id="tarifs" class="section beige">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Tarifs 2026</p>
-          <h2>Toutes nos excursions</h2>
-          <p class="sub">Prix en pesos mexicains. Transport depuis votre hôtel ou un point de rencontre selon l'excursion.</p>
-        </div>
-
-        <div class="day-trips">
-          <article class="day-trip">
-            <p class="kicker">Journée complète</p>
-            <h3><a href="/excursions/bacalar/">Bacalar</a></h3>
-            <p class="dt-sub">La lagune aux sept couleurs</p>
-            <p class="dt-days">Du jeudi au mardi (pas d'excursion le mercredi)</p>
-            <div class="pr-prices"><span class="price" data-mxn="1600"><em>Adulte</em><b class="mxn">2 260 MXN</b></span><span class="price" data-mxn="1450"><em>Enfant</em><b class="mxn">2 110 MXN</b></span></div>
-            <details><summary>Ce qui est inclus</summary><ul><li>Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre</li><li>Café de courtoisie et petit-déjeuner à la carte</li><li>Guide</li><li>Tour de la lagune en ponton (2 h) avec capitaine, gilets et eau</li><li>Cenote de la Bruja, Cenote Esmeralda, île aux Oiseaux, canal des Pirates</li><li>Deux arrêts baignade</li><li>Repas au choix (poisson, crevettes, pâtes, poulet, fajitas…)</li><li>Temps libre, fort San Felipe et lettres de Bacalar</li></ul></details>
-            <a class="link" data-tour="Bacalar" href="#contact">Réserver <span>→</span></a>
-          </article>
-          <article class="day-trip">
-            <p class="kicker">Journée complète</p>
-            <h3><a href="/excursions/holbox-deluxe/">Holbox Deluxe</a></h3>
-            <p class="dt-sub">L'île aux eaux turquoise</p>
-            <p class="dt-days">Tous les jours (départ de Tulum : lundi, mercredi, vendredi)</p>
-            <div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div>
-            <details><summary>Ce qui est inclus</summary><ul><li>Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre</li><li>Pause café (café, fruits, pain)</li><li>Guide bilingue</li><li>Bateau depuis Chiquilá : Isla Pasión, Punta Mosquito, île de Holbox</li><li>Eau et boissons fraîches</li><li>Repas à la carte (poulet, poisson ou bœuf) avec 1 boisson</li><li>2 h de temps libre et visite de Yalahau</li></ul><p class="policy">Absence le jour du tour : 20 USD par personne. Départ de Tulum : acompte de 50 % non remboursable.</p></details>
-            <a class="link" data-tour="Holbox Deluxe" href="#contact">Réserver <span>→</span></a>
-          </article>
-          <article class="day-trip">
-            <p class="kicker">Journée complète</p>
-            <h3><a href="/excursions/isla-contoy-isla-mujeres/">Isla Contoy &amp; Isla Mujeres</a></h3>
-            <p class="dt-sub">Réserve naturelle et île des Femmes</p>
-            <p class="dt-days">Lundi, mercredi et vendredi · environ 7 h</p>
-            <div class="pr-prices"><span class="price na"><em>Tarif</em><b>Prix sur demande</b></span></div>
-            <details><summary>Ce qui est inclus</summary><ul><li>Transport aller-retour en minibus climatisé depuis votre hôtel ou un point de rencontre</li><li>Petit-déjeuner léger</li><li>Bateau depuis Punta Sam et snorkeling sur les récifs de Contoy (équipement inclus)</li><li>Sentiers de l'île Contoy (2 à 3 h sur place)</li><li>Guide bilingue</li><li>Bières, sodas, eau et repas buffet</li><li>1 h de visite du centre d'Isla Mujeres</li></ul><p class="policy">Absence le jour du tour : le prix total est facturé.</p></details>
-            <a class="link" data-tour="Isla Contoy & Isla Mujeres" href="#contact">Réserver <span>→</span></a>
-          </article>
-        </div>
-
-        <details class="pr-cat" id="tarifs-quad" open>
-          <summary><span>Quad (ATV)</span><small>Prix par machine · tous les jours · 2 horaires</small></summary>
-          <ul class="pr-list">
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/quad-grotte/">Quad &amp; grotte</a></strong><small>Pistes dans la jungle et visite d'une grotte</small></div><div class="pr-prices"><span class="price" data-usd="80"><em>Quad pour 2</em><b class="mxn">2 100 MXN</b></span><span class="price" data-usd="56"><em>Quad pour 1</em><b class="mxn">1 670 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/quad-aventure-maya/">Quad Aventure Maya</a></strong><small>Parcours en quad dans la jungle maya</small></div><div class="pr-prices"><span class="price" data-usd="80"><em>Quad pour 2</em><b class="mxn">2 100 MXN</b></span><span class="price" data-usd="56"><em>Quad pour 1</em><b class="mxn">1 670 MXN</b></span></div></li>
-          </ul>
-        </details>
-        <details class="pr-cat" id="tarifs-aventure">
-          <summary><span>Aventure en quad + visites</span><small>Prix par personne · tous les jours</small></summary>
-          <ul class="pr-list">
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/full-day/">Full Day</a></strong><small>Journée complète d'aventure · 2 horaires</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte (en duo)</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant (en duo)</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="70"><em>Adulte (seul)</em><b class="mxn">1 920 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/mayan-safari/">Mayan Safari</a></strong><small>Safari dans la jungle maya</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte (en duo)</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant (en duo)</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="70"><em>Adulte (seul)</em><b class="mxn">1 920 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-adrenaline/">Cobá Adrenaline</a></strong><small>Quad et site maya de Cobá</small></div><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-adrenaline/">Tulum Adrenaline</a></strong><small>Taxe d'entrée de Tulum (25 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></li>
-          </ul>
-        </details>
-        <details class="pr-cat" id="tarifs-snorkel">
-          <summary><span>Snorkeling, récifs &amp; cénotes</span><small>Prix par personne · tous les jours</small></summary>
-          <ul class="pr-list">
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/yalku-extreme/">Yalkú Extreme</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="56"><em>Adulte (en duo)</em><b class="mxn">1 670 MXN</b></span><span class="price" data-usd="46"><em>Enfant (en duo)</em><b class="mxn">1 490 MXN</b></span><span class="price" data-usd="63"><em>Adulte (seul)</em><b class="mxn">1 800 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/recifs-adrenaline/">Récifs Adrenaline</a></strong><small>Taxe récif (25 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="67"><em>Adulte (en duo)</em><b class="mxn">1 870 MXN</b></span><span class="price" data-usd="57"><em>Enfant (en duo)</em><b class="mxn">1 690 MXN</b></span><span class="price" data-usd="73"><em>Adulte (seul)</em><b class="mxn">1 980 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/akumal-adrenaline/">Akumal Adrenaline</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="73"><em>Adulte (en duo)</em><b class="mxn">1 980 MXN</b></span><span class="price" data-usd="63"><em>Enfant (en duo)</em><b class="mxn">1 800 MXN</b></span><span class="price" data-usd="83"><em>Adulte (seul)</em><b class="mxn">2 160 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/yalku-lagune-cenote/">Yalkú · lagune · cénote</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/snorkel-maya-laguna/">Snorkel Maya Laguna</a></strong><small>Snorkeling en lagune</small></div><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/akumal-2-cenotes/">Akumal &amp; 2 cénotes</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/akumal-express/">Akumal Express</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="53"><em>Adulte</em><b class="mxn">1 620 MXN</b></span><span class="price" data-usd="43"><em>Enfant</em><b class="mxn">1 440 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-recifs/">Cobá &amp; récifs</a></strong><small>Taxe récif (25 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/akumal-balade-a-cheval-cenote/">Akumal · balade à cheval · cénote</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="63"><em>Adulte</em><b class="mxn">1 800 MXN</b></span><span class="price" data-usd="53"><em>Enfant</em><b class="mxn">1 620 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-akumal-cenote/">Cobá · Akumal · cénote</a></strong><small>Taxe Akumal / Yalkú (10 USD) non incluse</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></li>
-          </ul>
-        </details>
-        <details class="pr-cat" id="tarifs-tulum">
-          <summary><span>Tulum</span><small>Prix par personne · tous les jours · taxe d'entrée de Tulum (25 USD) non incluse</small></summary>
-          <ul class="pr-list">
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-discovery/">Tulum Discovery</a></strong><small>Visite du site archéologique</small></div><div class="pr-prices"><span class="price" data-usd="40"><em>Adulte</em><b class="mxn">1 380 MXN</b></span><span class="price" data-usd="40"><em>Enfant</em><b class="mxn">1 380 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-reserve-du-jaguar/">Tulum &amp; réserve du Jaguar</a></strong><small>Tulum et le parc du Jaguar</small></div><div class="pr-prices"><span class="price" data-usd="40"><em>Adulte</em><b class="mxn">1 380 MXN</b></span><span class="price" data-usd="40"><em>Enfant</em><b class="mxn">1 380 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-sunset/">Tulum Sunset</a></strong><small>Au coucher du soleil · 2ᵉ horaire uniquement</small></div><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-cenote-playa-paraiso/">Tulum · cénote · Playa Paraíso</a></strong><small>Ruines, baignade en cénote et plage</small></div><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-aventuras/">Tulum Aventuras</a></strong><small>Tulum et activités d'aventure</small></div><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-cenotes-mayas/">Tulum &amp; cénotes mayas</a></strong><small>Ruines et baignade en cénotes</small></div><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-cenote-grotte-recif/">Tulum · cénote-grotte · récif</a></strong><small>Ruines, cénote souterrain et snorkeling</small></div><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-coba-village-maya-cenote/">Tulum · Cobá · village maya · cénote</a></strong><small>Deux sites mayas et une communauté locale</small></div><div class="pr-prices"><span class="price" data-usd="68"><em>Adulte</em><b class="mxn">1 890 MXN</b></span><span class="price" data-usd="58"><em>Enfant</em><b class="mxn">1 710 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-cenote-grotte-akumal/">Tulum · cénote-grotte · Akumal</a></strong><small>Ruines, cénote souterrain et tortues d'Akumal</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="55"><em>Enfant</em><b class="mxn">1 650 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-cenote-grotte-yalku/">Tulum · cénote-grotte · Yalkú</a></strong><small>Ruines, cénote souterrain et lagune de Yalkú</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/tulum-balade-a-cheval-cenote/">Tulum · balade à cheval · cénote</a></strong><small>Ruines, cheval et baignade en cénote</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></li>
-          </ul>
-        </details>
-        <details class="pr-cat" id="tarifs-coba">
-          <summary><span>Cobá, cénotes &amp; Chichén Itzá</span><small>Prix par personne · aucune taxe à payer</small></summary>
-          <ul class="pr-list">
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-safari/">Cobá Safari</a></strong><small>Site maya de Cobá en mode safari</small></div><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-village-maya-cenote-lagune/">Cobá · village maya · cénote · lagune</a></strong><small>Culture maya et baignades</small></div><div class="pr-prices"><span class="price" data-usd="70"><em>Adulte</em><b class="mxn">1 920 MXN</b></span><span class="price" data-usd="60"><em>Enfant</em><b class="mxn">1 740 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-village-maya-cenote/">Cobá · village maya · cénote</a></strong><small>Culture maya et baignade en cénote</small></div><div class="pr-prices"><span class="price" data-usd="60"><em>Adulte</em><b class="mxn">1 740 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/coba-discovery/">Cobá Discovery</a></strong><small>Visite de Cobá · 2ᵉ horaire uniquement</small></div><div class="pr-prices"><span class="price" data-usd="50"><em>Adulte</em><b class="mxn">1 560 MXN</b></span><span class="price" data-usd="50"><em>Enfant</em><b class="mxn">1 560 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/cenotes-safari/">Cénotes Safari</a></strong><small>Circuit des cénotes</small></div><div class="pr-prices"><span class="price" data-usd="65"><em>Adulte</em><b class="mxn">1 830 MXN</b></span><span class="price" data-usd="55"><em>Enfant</em><b class="mxn">1 650 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/cenotes/">Cénotes</a></strong><small>Baignade en cénotes · 2 horaires</small></div><div class="pr-prices"><span class="price" data-usd="43"><em>Adulte</em><b class="mxn">1 440 MXN</b></span><span class="price" data-usd="33"><em>Enfant</em><b class="mxn">1 260 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/balade-a-cheval-maya/">Balade à cheval maya</a></strong><small>The Mayan Horses · 2 horaires</small></div><div class="pr-prices"><span class="price" data-usd="54"><em>Adulte</em><b class="mxn">1 640 MXN</b></span><span class="price" data-usd="54"><em>Enfant</em><b class="mxn">1 640 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/chichen-itza-sunrise/">Chichén Itzá Sunrise</a></strong><small>Chichén Itzá au lever du jour · mardi, jeudi, samedi</small></div><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></li>
-            <li class="pr-row"><div class="pr-name"><strong><a href="/excursions/chichen-itza-safari/">Chichén Itzá Safari</a></strong><small>Chichén Itzá en mode safari · mardi, jeudi, samedi</small></div><div class="pr-prices"><span class="price" data-usd="74"><em>Adulte</em><b class="mxn">2 000 MXN</b></span><span class="price" data-usd="64"><em>Enfant</em><b class="mxn">1 820 MXN</b></span></div></li>
-          </ul>
-        </details>
-
-        <p class="pr-foot"><a href="/excursions/" style="color:var(--bronze);border-bottom:1px solid var(--sand)">Voir la fiche détaillée de chaque excursion →</a><br>Prix par personne sauf mention contraire. « En duo » : deux personnes partagent un véhicule ; « seul » : un véhicule pour une personne. Les taxes indiquées se paient en plus. Tarifs susceptibles de changer : la disponibilité et le prix final sont confirmés sur WhatsApp au moment de la réservation.</p>
-        <div class="center"><a href="#contact" class="btn btn-dark">Réserver une excursion</a></div>
-      </div>
-    </section>
+    <!-- CATALOGUE:fin -->
 
     <section id="apropos" class="section">
       <div class="container narrow center">
@@ -652,8 +962,8 @@
     <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg>
   </a>
 
-  <script src="script.js?v=202611262000"></script>
-  <script src="chatbot.js?v=202611262000"></script>
+  <script src="script.js?v=202611262030"></script>
+  <script src="chatbot.js?v=202611262030"></script>
   <!-- Metricool : statistiques de visites -->
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"cdc0f6ff38dfe35e6181c068db9b3a6c"})});</script>
   <!-- HubSpot : suivi des visites et collecte des formulaires -->
