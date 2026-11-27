@@ -56,8 +56,10 @@ async function postJSON(url, body) {
 
 // Notification à l'équipe : FormSubmit (formulaire activé), puis Web3Forms en secours
 const FORMSUBMIT_ID = "d6d17f4acf1c6b4d9e85cf68df698246"; // identifiant public FormSubmit → viberivieramaya@gmail.com
-async function sendAuto(subject, data, replyto) {
-  if (await postJSON(`https://formsubmit.co/ajax/${FORMSUBMIT_ID}`, { _subject: subject, _template: "table", _captcha: "false", ...(replyto ? { _replyto: replyto } : {}), ...data })) return true;
+// autoreply : texte envoyé automatiquement au client (FormSubmit l'envoie au champ « email »)
+async function sendAuto(subject, data, replyto, autoreply) {
+  const auto = autoreply && replyto ? { email: replyto, _autoresponse: autoreply } : {};
+  if (await postJSON(`https://formsubmit.co/ajax/${FORMSUBMIT_ID}`, { _subject: subject, _template: "table", _captcha: "false", ...(replyto ? { _replyto: replyto } : {}), ...data, ...auto })) return true;
   return sendWeb3(subject, data, replyto);
 }
 
@@ -197,7 +199,22 @@ bookingForm.addEventListener("submit", async e => {
     vrm_budget: d.budget, vrm_langue_preferee: d.langue, vrm_hotel: d.hotel, vrm_source: "site_formulaire_decouverte",
   };
   const ctx = { pageUri: location.href, pageName: document.title };
-  const [mailOk, hubOk] = await Promise.all([sendAuto(subject, notif, d.email), sendHubSpot(hub, ctx)]);
+  const autoreply = [
+    `Bonjour ${d.prenom},`,
+    "",
+    "Merci pour votre demande chez Vibe Riviera Maya ! Elle est bien reçue.",
+    "",
+    "Je regarde vos dates et vos envies, et je vous reviens très vite (normalement dans les 24 heures) avec une sélection d'excursions adaptées pour vous.",
+    "",
+    `Pour aller plus vite, écrivez-moi sur WhatsApp : https://wa.me/${WHATSAPP}`,
+    "",
+    "À très bientôt sous le soleil de la Riviera Maya !",
+    "",
+    "Stacey",
+    "Vibe Riviera Maya",
+    "viberivieramaya.com",
+  ].join("\n");
+  const [mailOk, hubOk] = await Promise.all([sendAuto(subject, notif, d.email, autoreply), sendHubSpot(hub, ctx)]);
   button.disabled = false;
 
   if (mailOk || hubOk) {
