@@ -281,7 +281,7 @@ function applyRates(r) {
     const total = Math.ceil((base + MARGE_MXN) / 10) * 10;
     const usd = total / r.MXN;
     el.querySelector(".mxn").textContent = `${fmtNum(total)} MXN`;
-    el.querySelector(".fx").textContent = `≈ ${Math.round(usd)} USD · ${Math.round(usd * r.CAD)} CAD`;
+    const fx = el.querySelector(".fx"); if (fx) fx.textContent = `≈ ${Math.round(usd)} USD · ${Math.round(usd * r.CAD)} CAD`;
   });
   const note = document.getElementById("fx-note");
   if (note) note.textContent = `Taux du jour : 1 USD = ${r.MXN.toFixed(2).replace(".", ",")} MXN · 1 CAD = ${(r.MXN / r.CAD).toFixed(2).replace(".", ",")} MXN`;

@@ -65,7 +65,7 @@
     a.href = `https://wa.me/${WA}?text=${encodeURIComponent(text)}`; a.target = "_blank"; a.rel = "noopener"; a.click();
   }
 
-  // ---- Connaissances lues sur la page (prix à jour au taux du jour) ----
+  // ---- Connaissances lues sur la page (prix à jour) ----
   function catalog() {
     const items = [];
     document.querySelectorAll(".day-trip").forEach(d => items.push({
@@ -144,7 +144,7 @@
         action(card, "Réserver", () => goto("#contact", t.tour || t.name));
       });
       if (list.length > 4) action(b, "Voir toutes les excursions", () => goto(shown[0].anchor));
-      p(b, "Prix en pesos, avec l'équivalent en dollars US et canadiens au taux du jour. Le prix final est confirmé à la réservation.").className = "vbot-small";
+      p(b, "Prix en pesos mexicains. Le prix final est confirmé à la réservation.").className = "vbot-small";
     });
   }
 
@@ -216,7 +216,7 @@
     for (const it of INTENTS) if (has(q, it.k)) { const keep = it.r(); if (!keep) setChips(["Que me conseillez-vous ?", "Prix de Bacalar", "Comment réserver ?"]); return; }
     if (has(q, ["prix", "tarif", "combien", "cout", "price", "precio", "cher"])) {
       bubble("bot", b => {
-        p(b, "Nos prix sont affichés en pesos, avec l'équivalent en dollars US et canadiens au taux du jour. De quelle excursion parlez-vous ?");
+        p(b, "Nos prix sont affichés en pesos mexicains. De quelle excursion parlez-vous ?");
         action(b, "Voir tous les tarifs", () => goto("#tarifs"));
       });
       setChips(["Prix de Bacalar", "Tours en quad", "Chichén Itzá", "Tours à Tulum"]);
