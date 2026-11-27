@@ -149,7 +149,7 @@ function readForm() {
   const interets = f.getAll("interets");
   return {
     f, interets,
-    prenom: val(f, "prenom"), nom: val(f, "nom"), email: val(f, "email"), tel: val(f, "telephone"),
+    prenom: val(f, "prenom"), nom: val(f, "nom"), email: val(f, "email"), tel: val(f, "phone"),
     date: val(f, "date"), offre: val(f, "offre"), adultes: val(f, "adultes"), enfants: val(f, "enfants") || "0",
     ages: +val(f, "enfants") > 0 ? val(f, "ages") : "", budget: val(f, "budget"), langue: val(f, "langue"),
     hotel: val(f, "hotel"), message: val(f, "message"),
